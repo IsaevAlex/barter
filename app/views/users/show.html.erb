@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-md-4">
+		<h4><%= @user.last_name %> <%= @user.name %> <%= @user.middle_name %></h4><br>
+		<h4><%= @user.email %></h4><br>
+		<h4><%= @user.company_name %></h4><br>
+		<h4><%= @user.city %></h4><br>
+		<h4><%= image_tag @user.image.url(:medium) %></h4>
+	</div>
+</div>

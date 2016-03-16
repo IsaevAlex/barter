@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "bootstrap-sprockets";
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+
+body{
+	background-color: #F5BE5C;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #000000;
+  border-radius: 1px;
+}
+
+.greeting {
+	font-size: 56px;
+	color: #ffff;
+	padding-top: 70px;
+}
+
+.title {
+	font-size: 56px;
+	color: #3c3e50;
+}
+
+.content {
+	background-color:#ffffff; 
+	height: 800px;
+	margin-bottom: 50px;
+}
+
+.follow-button{
+     background: #3c3e50;
+     color: #ffffff;
+     border-radius: 20px;
+     font-weight: 400;
+     font-size: 1.4em; //font size does not change
+     display: block;
+     padding: 10px 14px 10px 14px; //modification doesn't show..
+     text-decoration: none;
+     margin-top: 40px;
+     margin-bottom: 30px;
+ }
+
+.form-control{
+	margin-top: 40px;
+}
+
+#tab_2{
+	margin-top: 10px
+}
+
+@media (max-width: 800px) {
+	.greeting{
+		padding-top: 10px;
+	}
+}
