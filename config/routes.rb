@@ -2,6 +2,10 @@ Rails.application.routes.draw do
    devise_for :users
    root 'static_pages#home'
    get 'static_pages/about', as: 'about'   
-   resources :users , only: [:show]
+   resources :users , only: [:show] do
+   		resources :services
+   		resources :follows, :only => [:create, :destroy]
+   end
 
+   
 end

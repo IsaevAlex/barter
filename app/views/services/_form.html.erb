@@ -1,0 +1,9 @@
+<%= form_for([@user, @user.services.build]) do |f| %>
+	<%= render 'layouts/error_messages', object: f.object %>
+	
+	<div class="form-group">
+		<%= f.text_field :content, autofocus: true, class:"form-control" %>
+	</div>
+
+	<%= f.submit "Добавить", class: "btn btn-success" %>
+<% end %>

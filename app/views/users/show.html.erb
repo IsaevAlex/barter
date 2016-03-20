@@ -5,5 +5,34 @@
 		<h4><%= @user.company_name %></h4><br>
 		<h4><%= @user.city %></h4><br>
 		<h4><%= image_tag @user.image.url(:medium) %></h4>
+		<% if user_signed_in? %>
+  			<div id="follow_user">
+    			<%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
+  			</div>
+		<% end %>
+		
 	</div>
 </div>
+	<div class="col-md-6">
+		<ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
+                    <li><a data-toggle="tab" href="#panel2">Подписчики</a></li>
+                    <li><a data-toggle="tab" href="#panel3">Новости</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="panel1" class="tab-pane fade in active">
+						<h2>Добавить услугу</h2>
+						<%= render 'services/form' %><br>
+						
+						<%= render 'services/content' %>
+                    </div>
+                    <div id="panel2" class="tab-pane fade">
+                    	<%= render 'followers' %><br>
+						
+						<%= render 'following' %>							
+					</div>
+					<div id="panel3" class="tab-pane fade">
+                    	<%= render 'following_services' %>						
+					</div>
+                </div>
+	</div>

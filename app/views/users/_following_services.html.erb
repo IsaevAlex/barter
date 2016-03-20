@@ -1,0 +1,8 @@
+<% @user.all_following.each do | user | %>
+	<% user.services.each do |service| %>
+			<div class="well">
+				<h4><%= service.content %></h4>
+  				<p> Добавил <%= service.user.name %> <%= service.user.last_name %> ( <%= service.user.company_name %> )</p>
+  			</div>  
+	<% end %>
+<% end %>

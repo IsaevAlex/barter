@@ -1,0 +1,11 @@
+<br>
+<div class="container">
+    <div class="page-header">
+       <p>Слежу:</p>
+       <% @user.all_following.each do | user | %>
+            <p><%= link_to "#{user.last_name} #{user.name} #{user.middle_name}" , user %></p>
+       <% end %>
+
+    </div>
+</div>
+
