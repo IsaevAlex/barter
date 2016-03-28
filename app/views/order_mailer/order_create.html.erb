@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Заказ товара</title>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+		<style type="text/css">
+		body{
+			margin: 0 auto 0 auto;
+		}
+
+		.order{
+			border-left: solid;
+			font-size: 20px;
+			padding:10px;
+			font-family: 'PT Sans', sans-serif;
+		}
+
+		p{
+			font-family: 'PT Sans', sans-serif;
+		}
+
+		span{
+			color: #B2B2B2;
+			font-family: 'PT Sans', sans-serif;
+		}
+		
+		h1{
+			line-height: 0.01em;
+			font-family: 'PT Sans', sans-serif;
+		}
+	</style>
+	
+		<h1>BarterCo</h1>
+		<span>Онлайн площадка для бартерных отошений</span><br>
+		<div class="email_text">
+			<p style= "line-height: 2.0em;">Приветствуем <%= @order.recipient_user.last_name %> <%= @order.recipient_user.name %> <%= @order.recipient_user.middle_name %>!!!</p>
+			<p> Организация <%=  @order.sender_user.company_name %> заинтересована в ваших услугах</p>
+			<p> Вам прислали сообщение:</p><br>
+			<div class="order">
+				<%= @order.description  %>  
+			</div>	
+			<p>Прислать ответ <%= @order.sender_user.email %> </p>
+		</div>
+</body>
+</html>

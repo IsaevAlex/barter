@@ -1,11 +1,27 @@
 	<p><h4>Количество услуг: <%= @user.services.count %></h4></p>
 	<% if @user.services.any? %>
-	<% @user.services.each do |service| %>
-			<div class="well">
-				
-					<h4><%= service.content %></h4>
-  					<p> Добавил <%= service.user.name %> <%= service.user.last_name %> ( <%= service.user.company_name %> )</p>
-  				
-  			</div>  	
+	<% @user.services.order("created_at desc").each do |service| %>
+			
+  			<div class="panel panel-white post panel-shadow">
+  			   <div class="post-heading">
+                    <div class="pull-left image">
+                        <%= image_tag service.user.image.url, width:"70", height:"70" %>
+                    </div>
+                    <div class="pull-left meta">
+                        
+                            <a href="#"><b><%= service.user.company_name %></b></a>
+                            добавила предложение
+                        
+                        <h6 class="text-muted time"><%= service.user.created_at %></h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                  <%=  best_in_place service, :content, :url => user_service_path(@user, service),
+    :as => :textarea, :ok_button => 'Сохранить', :cancel_button => 'Отмена' %>
+               		<%= link_to "Удалить", [service.user, service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
+               		
+                </div>
+
+            </div>
   	<% end %>
   	<% end %>

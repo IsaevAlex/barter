@@ -1,38 +1,50 @@
 <div class="row">
-	<div class="col-md-4">
-		<h4><%= @user.last_name %> <%= @user.name %> <%= @user.middle_name %></h4><br>
-		<h4><%= @user.email %></h4><br>
-		<h4><%= @user.company_name %></h4><br>
-		<h4><%= @user.city %></h4><br>
+	<div class="col-md-4 col-md-offset-1">
+		
 		<h4><%= image_tag @user.image.url(:medium) %></h4>
+		<h1><%= @user.company_name %></h1>
+		<p><%= @user.confirmed_at %></p>
+
+		<p>
+			<div class="followers_followable_count">
+				<a href="<%= follow_user_path  %>">Подписки <span class="badge"><%= @user.follow_count %></span></a> 	
+			    <a href="<%= followers_user_path %>">Подписчики <span class="badge"><%= @user.followers_count %></span></a>	
+			</div>
+		</p>
+		
+		
 		<% if user_signed_in? %>
   			<div id="follow_user">
     			<%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
   			</div>
+
 		<% end %>
 		
 	</div>
-</div>
 	<div class="col-md-6">
+		
 		<ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
-                    <li><a data-toggle="tab" href="#panel2">Подписчики</a></li>
-                    <li><a data-toggle="tab" href="#panel3">Новости</a></li>
+                    <li><a data-toggle="tab" href="#panel2">Новости</a></li>
+                    <li><%= link_to "Начать бартерную торговлю", new_user_order_path(@user, @order) , class:"order-button" %></li>
+                    
                 </ul>
                 <div class="tab-content">
                     <div id="panel1" class="tab-pane fade in active">
-						<h2>Добавить услугу</h2>
+						<h2>Добавить предложение</h2>
 						<%= render 'services/form' %><br>
 						
 						<%= render 'services/content' %>
                     </div>
                     <div id="panel2" class="tab-pane fade">
-                    	<%= render 'followers' %><br>
-						
-						<%= render 'following' %>							
-					</div>
-					<div id="panel3" class="tab-pane fade">
                     	<%= render 'following_services' %>						
 					</div>
+					
                 </div>
 	</div>
+</div>
+
+
+
+
+	

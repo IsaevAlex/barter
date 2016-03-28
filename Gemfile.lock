@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ifad/data-confirm-modal.git
+  revision: a2018ab8893cdeeeffaae407368ed1a20ea72b30
+  specs:
+    data-confirm-modal (1.1.0)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,6 +49,9 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
+    best_in_place (3.1.0)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -49,6 +59,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.2)
+    cancan (1.6.10)
     choice (0.2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -181,9 +192,12 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
+  best_in_place
   bootstrap-sass
   byebug
+  cancan
   coffee-rails (~> 4.1.0)
+  data-confirm-modal!
   devise
   jbuilder (~> 2.0)
   jquery-rails

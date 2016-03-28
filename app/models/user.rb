@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  has_many :categories
+  belongs_to :category
   has_many :services
 
-
+  has_many :sender_usered_orders, foreign_key: 'sender_user_id', class_name: 'Order'
+  has_many :recipient_usered_orders, foreign_key: 'recipient_user_id', class_name: 'Order'
+  
+  
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates :name, :last_name, :email, :company_name, :description,   presence: true
   validates :name, length: { maximum: 20 }

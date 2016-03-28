@@ -1,0 +1,35 @@
+
+
+	<div class="row">
+		<div class="col-xs-3 col-xs-offset-2 col-md-6 col-md-offset-4">
+      		<h2 class="title">Поиск по категориям</h2>
+      		<h4 style="color:#ffffff">Сделайте сортировку организаций по категориям</h4><br>    
+  		</div> 
+  	</div>
+	<%= render 'layouts/search_by_category' %>
+	
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 ">
+			<h3 class="search_results_title">Результаты поиска</h3>
+		</div>				
+	</div>
+	<div class="row">
+		<% @users.each do |user| %>
+			<div class="col-md-7 col-md-offset-1">
+				<div class="well">
+					<div class="well-image">
+						<%= image_tag user.image.url,  height: '100', width: '120' %>	
+					</div>
+					<div class="well-description">						
+						<h3><%= link_to user.company_name, user , style:"color:#3c3e50;"%></h3>	
+						<p><%= link_to "#{user.last_name} #{user.name} #{user.middle_name}" , user , style:"color:#3c3e50;"%></p>
+					</div>
+					
+				</div>
+
+				</div>	
+		<% end %>
+	</div>
+	
+
+	

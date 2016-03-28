@@ -1,39 +1,94 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+    <div class="col-xs-3 col-xs-offset-2 col-md-6 col-md-offset-4">
+        <h2 class="title">Настройки профиля</h2>
+        <h4 style="color:#ffffff">Для изменения личных данных</h4><br>
+    </div>   
+
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div class="col-md-10 col-md-offset-1 content">
+         <div class="col-md-8 col-md-offset-2">
+               <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#panel1">Шаг 1.Основная информация</a></li>
+                    <li><a data-toggle="tab" href="#panel2">Шаг 2.Доп.информация</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="panel1" class="tab-pane fade in active">
+                         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                        <div class="form-group">
+                            <%= f.text_field :name, :placeholder => "Имя", autofocus: true, class:"form-control" %>
+                        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+                        <div class="form-group">
+                           <%= f.text_field :last_name, :placeholder => "Фамилия", autofocus: true, class:"form-control" %>
+                        </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+                        <div class="form-group">
+                           <%= f.text_field :middle_name, :placeholder => "Отчество", autofocus: true, class:"form-control" %>
+                        </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                        <div class="form-group">
+                             <%= f.text_field :company_name, :placeholder => "Организация", autofocus: true, class:"form-control" %>
+                        </div>
+                          
+                        <div class="form-group">
+                               <%= f.email_field :email, :placeholder => "Эл.адрес", autofocus: true, class:"form-control" %>
+                        </div>
+                        
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                        <% end %>
 
-<h3>Cancel my account</h3>
+                        <div class="form-group">
+                            <%= f.password_field :password, autocomplete: "off", :placeholder => 'Новый пароль', class:"form-control form-control-tag"  %>
+                        </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                        <div class="form-group">
+                            <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Повторите новый пароль', class:"form-control form-control-tag"  %>
+                        </div>
 
-<%= link_to "Back", :back %>
+                        <div class="form-group">
+                            <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Чтобы изменения вступили в силу, введите старый пароль ', class:"form-control form-control-tag"  %>
+                        </div>
+                        
+                       
+                        
+                     
+                    </div>
+                    <div id="panel2" class="tab-pane fade"><br>
+                        <div class="form-group">
+                            <h4>Выберите сферу вашей деятельности:</h4>
+                            <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "Выберите категорию"} , {class: "form-control", id:"tab_2"} %>
+                        </div>
+                        <div class="form-group">
+                            <h4>Номер телефона:</h4>
+                            <%= f.text_field :phone_number, class:"form-control", id:"tab_2" %>
+                        </div>
+                        <div class="form-group">
+                            <h4>Опишите вашу деятельность:</h4>
+                            <%= f.text_area :description, autofocus: true, size: "60x12", class:"form-control", id:"tab_2" %>
+                        </div>
+                        <div class="form-group">
+                           <h4>Загрузите изображение для личного профиля:</h4>
+                           <%= f.file_field :image  %>
+                        </div> 
+                      </div>
+                    </div>
+
+           <div class="col-md-offset-4">
+              <%= f.submit "Обновить профиль", class: "submit-button" %>
+          </div>
+      <% end %>
+   
+      
+         </div>
+</div>
+
+</div>
+
+

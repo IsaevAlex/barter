@@ -50,7 +50,7 @@
                     <div id="panel2" class="tab-pane fade"><br>
                         <div class="form-group">
                             <h4>Выберите сферу вашей деятельности:</h4>
-                            <%= f.collection_select :category_id, Category.where(parent_id:nil), :id, :name, {prompt: "Выберите категорию"} , {class: "form-control", id:"tab_2"} %>
+                            <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "Выберите категорию"} , {class: "form-control", id:"tab_2"} %>
                         </div>
                         <div class="form-group">
                             <h4>Номер телефона:</h4>
@@ -68,7 +68,7 @@
                     </div>
 
            <div class="col-md-offset-4">
-              <%= f.submit "Зарегистрироваться", class: "follow-button" %>
+              <%= f.submit "Зарегистрироваться", class: "submit-button" %>
           </div>
       <% end %>
    
