@@ -4,3 +4,8 @@
 
 jQuery ->
   $('.best_in_place').best_in_place()
+
+ $ ->
+  $('#service_search').typeahead
+    name: "service"
+    remote: "/services/autocomplete?query=%QUERY"

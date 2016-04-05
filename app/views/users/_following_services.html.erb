@@ -1,5 +1,5 @@
 <% @user.all_following.each do | user | %>
-	<% user.services.each do |service| %>
+	<% user.services.order("created_at desc").each do |service| %>
 		<div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
                     <div class="pull-left image">

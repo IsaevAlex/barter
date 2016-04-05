@@ -3,7 +3,10 @@
 		
 		<h4><%= image_tag @user.image.url(:medium) %></h4>
 		<h1><%= @user.company_name %></h1>
-		<p><%= @user.confirmed_at %></p>
+		<p>Зарегистрирован <%= @user.confirmed_at %></p>
+		<p>Вид деятельности <%= @user.category.name %></p>
+		<p>Номер телефона <%= @user.phone_number %></p>
+		<p> Местоположение <%= @user.city %></p>
 
 		<p>
 			<div class="followers_followable_count">
@@ -22,28 +25,54 @@
 		
 	</div>
 	<div class="col-md-6">
-		
 		<ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
                     <li><a data-toggle="tab" href="#panel2">Новости</a></li>
-                    <li><%= link_to "Начать бартерную торговлю", new_user_order_path(@user, @order) , class:"order-button" %></li>
-                    
-                </ul>
-                <div class="tab-content">
-                    <div id="panel1" class="tab-pane fade in active">
-						<h2>Добавить предложение</h2>
-						<%= render 'services/form' %><br>
-						
-						<%= render 'services/content' %>
-                    </div>
-                    <div id="panel2" class="tab-pane fade">
-                    	<%= render 'following_services' %>						
-					</div>
-					
-                </div>
+                    <% unless @user == current_user %>
+                    	<li><%= link_to "Начать бартерную торговлю", new_user_order_path(@user, @order) , remote: true, class: "order-button ", data: { toggle: "modal", target: "#emailModal" } %></li>
+                    <% end %>
+                    <% if can? :create, @user %>
+					    <li> <%= link_to "Добавить предложение", new_service_path, remote: true, class: "order-button ", data: { toggle: "modal", target: "#newModal" } %></li>
+					<% end %>
+         </ul>
+         <div class="tab-content">
+              <div id="panel1" class="tab-pane fade in active">
+					<%= render 'services/content' %>
+              </div>
+              <div id="panel2" class="tab-pane fade">
+                  <%= render 'following_services' %>						
+			  </div>
+		 </div>
 	</div>
 </div>
 
+<div class="modal fade" id="newModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="emailModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 
 
 

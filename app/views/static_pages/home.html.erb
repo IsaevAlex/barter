@@ -1,1 +1,94 @@
-<%= render 'layouts/greeting' %>
+<div class="home">
+	<%= render 'layouts/greeting' %>
+	<div class="col-md-2 col-md-offset-5">
+		<button class="home-button" data-toggle="modal" data-target=".bs-example-modal-lg">Узнать подробнее</button>
+	</div>
+
+<div class="container">
+
+<!-- Large modal -->
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+        
+    </ol>  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+
+    <h3>Добро пожаловать в BarterCo!!!</h3>
+     <p>
+         BarterCo - это онлайн площадка для бартерных отношений между юридическими лицами.
+     </p>  
+     
+         
+     
+    </div>
+    <div class="item">
+
+    <h3>Как пользоваться нашим ресурсом</h3>
+     <p>
+         Шаг 1. Для пользования онлайн площадкой Вам необходимо зарегистрироваться. 
+         После нажатия на кнопку "Зарегистрироваться" к Вам на электронную почту придет сообщение для активации вашего аккаунта.
+     </p>  
+     <p>
+         <%= link_to "Зарегистрироваться", new_user_registration_path, clas:"button" %>
+     </p>  
+    </div>
+     <div class="item">
+
+    <h3>Шаг 2</h3>
+     <p>
+        После входа в систему вы можете найти интересущие Вас предложения 
+        
+        <%= image_tag("add_barter.png", :alt => "search") %>
+     </p>  
+       
+    </div>
+    <div class="item">
+      <h3>Шаг 3</h3>
+      <p>
+        Также вы можете найти интересущие Вас предложения других юридических лиц. Вы можете сделать поиск конкретно по предложениям или же по интересующим Вас категориям.</p>
+        <%= image_tag("search.png", :alt => "add_barter") %>
+    </div>
+    <div class="item">
+      <h3>Шаг 4</h3>
+      <p>Если Вы нашли нужного кандитата, отправьте ему сообщение на его электронную почту. </p>
+      <%= image_tag("email.png", :alt =>"email") %>
+    </div>
+    <div class="item">
+      <h3>Шаг 5</h3>
+      <p>
+        Также если вы желаете быть в курсе добавленных предложений интересных Вами юридических лиц, Вы можете подписаться на их аккаунт. И в разделе "Новости" на личном профиле будут отображаться все предложения Ваших подписок.
+      </p>
+      <%= image_tag("follow.png", :alt =>"follow") %>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row">
+		<%= form_tag services_path, method: :get do %>
+			<div class="col-md-7 col-md-offset-1">
+				<%= text_field_tag :query, params[:query], placeholder: "Введите предложение",  class: "form-control", id:"search"   %>
+            </div>
+			<div class="col-md-2">
+				<%= submit_tag "Поиск", name: nil, class: "search-button" %>		
+			</div>
+		<% end %>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-1">
+		<% if @services.present? %>
+	 		 <% @services.each do |service| %>
+		 			<div class="panel panel-white post panel-shadow">
+		  				<div class="post-heading">
+		                	<div class="pull-left image">
+		                        <%= image_tag service.user.image.url, width:"70", height:"70" %>
+		                    </div>
+		                    <div class="pull-left meta">
+		                       	 <a href="#"><b><%= service.user.company_name %></b></a>
+		                            добавила предложение
+		                       	 <h6 class="text-muted time"><%= service.user.created_at %></h6>
+								  
+		                    </div>
+		                    <% unless @user == current_user %>
+                    					<%= link_to "Начать бартерную торговлю", new_user_order_path(service.user, @order) , remote: true, class: "order-search-button", data: { toggle: "modal", target: "#emailModal" } %>
+                    			  <% end %>
+		                </div> 
+		                <div class="post-description"> 
+		                  		<%= service.content %>
+		                </div>
+		         	</div>
+	         <% end %>
+		    
+	     <% else %>
+    			<h4>По вашему запросу ничего не найдено</h4>
+  		 <% end %>
+
+  	
+ 		</div>
+ 	</div>
+
+ 	<div class="modal fade" id="emailModal">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+    		</div>
+  		</div>
+	</div>
+    	

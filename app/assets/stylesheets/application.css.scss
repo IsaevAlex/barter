@@ -18,8 +18,10 @@
 @import "bootstrap-sprockets";
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
-body{
-	background-color: #F5BE5C;
+.row { margin: 0; padding: 0; }
+
+.service-form{
+    margin: 20px;
 }
 
 h3{
@@ -47,25 +49,21 @@ h3{
   border-radius: 1px;
 }
 
-.navbar{
-    
+.nav.navbar-nav a{
+   color: #3c3e50;
+   font-weight: bold;
 }
+
 
 .greeting {
 	font-size: 56px;
 	color: #ffff;
-	padding-top: 70px;
+  text-align: center;
+  margin-top: 100px;
 }
 
-.title {
-	font-size: 56px;
-	color: #3c3e50;
-}
-
-.content {
-	background-color:#ffffff; 
-	height: 800px;
-	margin-bottom: 50px;
+.greeting-title{
+   text-align: center;
 }
 
 .submit-button{
@@ -81,13 +79,48 @@ h3{
      margin-bottom: 30px;
 }
 
-.follow-button{
+.home-button{
+     background: #3c3e50;
+     color: #ffffff;
+     border-radius: 20px;
+     font-weight: 400;
+     font-size: 1.4em; //font size does not change
+     display: block;
+     padding: 10px 15px 10px 15px; //modification doesn't show..
+     text-decoration: none;
+     margin-top: 80px;
+     margin-bottom: 30px;
+}
+
+
+
+.search-button{
+    background: #3c3e50;
+    color: #ffffff;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 35px;
+    padding: 10px 14px 10px 14px;
+}
+
+.button{
     background: #3c3e50;
     color: #ffffff;
     border-radius: 20px;
     text-decoration: none;
     margin-top: 20px;
     padding: 10px 14px 10px 14px;
+       
+}
+
+.button.service-button{
+    margin-left: 170px; 
+}
+
+.button.service-button-close{
+    background: #ffffff;
+    color: #3c3e50;
+    border: 2px solid #3c3e50;
 }
 
 .order-button{
@@ -95,11 +128,24 @@ h3{
     color: #ffffff;
     border-radius: 20px;
     text-decoration: none;
+}
 
+.order-search-button{
+    background: #3c3e50;
+    color: #ffffff;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px 10px;
+    display:block;
+    float:right;
 }
 
 .form-control{
 	margin-top: 40px;
+}
+
+.form-control#search{
+   margin-bottom: 25px;
 }
 
 #tab_2{
@@ -208,11 +254,14 @@ background: #428bca;
   width: 100%;
   height: auto;
 }
+
 .post .post-description {
   padding: 15px;
+
 }
 .post .post-description p {
   font-size: 14px;
+
 }
 .post .post-description .stats {
   margin-top: 20px;
@@ -282,5 +331,38 @@ background: #428bca;
    padding-right: 10px;
    padding-bottom: 20px;
 }
+
+/* instructions */
+
+.carousel-inner .item, .modal-content {min-height:400px;}
+.carousel-inner .item {padding: 100px 20px;}
+
+.carousel-control{
+   margin-top: 200px;
+}
+
+.item >  h3 {
+    font-size: 50px;
+}
+
+.item > p{
+  font-size: 20px;
+}
+
+/* instructions */
+
+/* navbar */
+
+.navbar-right{
+  margin-right: 100px;
+}
+
+.home{
+   background-color: #3c3e50;
+   height: 600px;
+}
+
+
+
 
 

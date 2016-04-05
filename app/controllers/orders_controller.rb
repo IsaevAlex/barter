@@ -1,12 +1,16 @@
 class OrdersController < ApplicationController
-	before_action :find_user, only: [:new]
-
+	
 	def new 
-		@order = Order.new
+	   @user = User.find(params[:user_id])
+	   session[:id] = @user.id
+	   respond_to do |format|
+      		format.js {}
+       end
 	end
 
 	def create
-		@order = Order.new(order_params)
+		
+		@order = current_user.sender_usered_orders.build(order_params)
 		@order.sender_user_id = current_user.id
 		@order.recipient_user_id = session[:id]
 		
@@ -26,8 +30,7 @@ class OrdersController < ApplicationController
         
 
 		def find_user
-			@user = User.find(params[:user_id])
-			session[:id] = @user.id
+			
 		end
 
 end

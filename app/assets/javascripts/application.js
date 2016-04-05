@@ -36,5 +36,11 @@ dataConfirmModal.setDefaults({
   cancel: 'Отмена'
 });
 
+$('.carousel').carousel({
+    wrap: false
+})
+
+
+
 
 

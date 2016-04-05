@@ -1,6 +1,6 @@
 	<p><h4>Количество услуг: <%= @user.services.count %></h4></p>
 	<% if @user.services.any? %>
-	<% @user.services.order("created_at desc").each do |service| %>
+	<% @services.order("created_at desc").each do |service| %>
 			
   			<div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
@@ -16,12 +16,20 @@
                     </div>
                 </div> 
                 <div class="post-description"> 
-                  <%=  best_in_place service, :content, :url => user_service_path(@user, service),
-    :as => :textarea, :ok_button => 'Сохранить', :cancel_button => 'Отмена' %>
-               		<%= link_to "Удалить", [service.user, service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
-               		
+                  <% if can? :update, service %>
+                      <%= link_to service.content, edit_service_path(service) , remote: true,  data: { toggle: "modal", target: "#editModal" } %>
+                  <% else %>
+                       <%= service.content %>
+                  <% end %>
+                  <% if can? :destroy, service %>
+                 		  <%= link_to "Удалить", [ service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
+                  <% end %>
+               		    <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default" %>
                 </div>
 
             </div>
+          
   	<% end %>
+        <%= will_paginate @services %>
   	<% end %>
+

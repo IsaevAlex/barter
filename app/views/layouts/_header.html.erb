@@ -1,4 +1,5 @@
-<nav class="navbar navbar-static-top" role="navigation">
+<nav class="navbar navbar-static-top navbar " role="navigation">
+    <div class="container-fluid">
    <div class="row">
        <div class="col-md-offset-1">
             <div class="navbar-header">
@@ -12,9 +13,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><%= link_to "Главная", root_path %></li>
-                <li><%= link_to "О нас", about_path %></li>
+            <div class="navbar-header">
+                <%= link_to "BarterCo", root_path, class:"navbar-brand"%>
+            </div>
+            <ul class="nav navbar-nav " >
+               
                 <% if user_signed_in? %>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Аккаунт<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -23,22 +26,24 @@
                                     <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
 
                                 </ul>
-                            </li>   
+                        </li>   
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to 'Поиск по категориям ', users_path %></li>
+                                    <li><%= link_to "Поиск по предложениям", services_path %></li>
+                                </ul>
+                        </li>  
                 <% else %>
                         <li><%= link_to 'Войти', new_user_session_path %></li>
                         <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
                 <% end %>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><%= link_to 'Поиск по категориям ', users_path %></li>
-                                    <li><%= link_to "Поиск по товарам", "#" %></li>
-                                </ul>
-                            </li>   
+               
+                 
             </ul>
         </div>
        
        </div>
    </div>
-        
+   </div>   
 </nav>
 

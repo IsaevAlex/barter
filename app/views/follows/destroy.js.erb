@@ -1,1 +1,2 @@
 $('#follow_user').html('<%= escape_javascript(render :partial => "/shared/follow_user", :locals => {:user => @user}) %>');
+$("#flash").html('<%= escape_javascript(render :partial => "layouts/messages", :locals => {:user => @user}) %>');

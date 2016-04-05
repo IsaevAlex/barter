@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	# before_action :find_user_id, only: [:followers, :follow]
 
 	def show
+		@services = @user.services.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def index
@@ -20,12 +21,7 @@ class UsersController < ApplicationController
 	def followers
 	end
 
-  	
-
-
-	
-
-	private
+  	private
 
 		def find_user
 				@user = User.find(params[:id])
