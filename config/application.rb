@@ -35,8 +35,8 @@ module Barter
       :address => "smtp.gmail.com",
       :port => 587,
       :authentication => "plain",
-      :user_name => "lexsandr46@gmail.com",
-      :password => "asensible1995cronos2025"
+      :user_name => ENV['login'],
+      :password => ENV['password']
     }
   end
 end
