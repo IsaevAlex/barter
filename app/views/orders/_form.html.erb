@@ -1,14 +1,22 @@
-<div class="service-form">
-	<h3>Отправить запрос</h3>
-	<%= form_for [current_user, current_user.sender_usered_orders.build], :html=>{ :multipart => true } do |f| %>
-		<%= render 'layouts/error_messages', object: f.object %>
-		<%= f.text_area :description, autofocus: true,  cols: "30", rows: "10", class:"form-control" %>
-		<%= f.submit "Отправить", class: "button service-button" %>
-    	<%= link_to "Отмена", current_user, class:"button service-button-close" %>
-    <% end %>
+<div class="row">
+    <div class="col-xs-3 col-xs-offset-2 col-md-6 col-md-offset-4">
+        <h2 class="title">Отправить запрос</h2>
+        <h5 style="color:#3c3e50;">Чтобы связаться с этой организацией, напишите письмо.</h5><br>
+    </div>   
+    <div class="col-md-10 col-md-offset-1 content">
+    	<%= form_for [current_user, current_user.sender_usered_orders.build], :html=>{ :multipart => true } do |f| %>
+			<%= render 'layouts/error_messages', object: f.object %>
+			<%= f.text_area :description, autofocus: true,  cols: "30", rows: "10", class:"form-control" %>
+			 
+			 <div class="row">
+				 <div class="col-md-6 col-md-offset-2">
+						<%= f.submit "Отправить", class: "button service-button",id:"modal" %>
+		    			<%= link_to "Отмена", :back , class:"button service-button-close",id:"modal" %>
+		    	 </div>
+	    	 </div>
+        <% end %>
+    </div>
 </div>
-
-
 
 
 

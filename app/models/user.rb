@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :sender_usered_orders, foreign_key: 'sender_user_id', class_name: 'Order'
   has_many :recipient_usered_orders, foreign_key: 'recipient_user_id', class_name: 'Order'
   
+  has_many :favorite_services
+  has_many :favorites, through: :favorite_services, source: :service
   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates :name, :last_name, :email, :company_name, :description,   presence: true

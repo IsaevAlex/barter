@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-	before_action :find_service, only: [ :destroy, :edit, :update, :show]
+	before_action :find_service, only: [ :destroy, :edit, :update, :show, :favorite]
     respond_to :html, :json
     
     def autocomplete
@@ -26,6 +26,22 @@ class ServicesController < ApplicationController
       		format.js {}
     	end
 	end
+
+	def favorite
+	    type = params[:type]
+	    if type == "favorite"
+	      current_user.favorites << @service
+	      redirect_to :back, notice: 'Вы добавили в избранное предложение'
+
+	    elsif type == "unfavorite"
+	      current_user.favorites.delete(@service)
+	      redirect_to :back, notice: 'Вы удалили из избранных предложение'
+
+	    else
+	      # Type missing, nothing happens
+	      redirect_to :back
+	    end
+    end
 
 	def create
 		@service = current_user.services.build(service_params)

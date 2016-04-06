@@ -209,6 +209,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
+  autoprefixer-rails
   best_in_place
   bootstrap-sass
   byebug

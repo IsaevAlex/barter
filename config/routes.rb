@@ -20,6 +20,7 @@ Rails.application.routes.draw do
          collection do
             get :autocomplete # <= add this line
          end
-    end
+         put :favorite, on: :member
+   end
    
 end

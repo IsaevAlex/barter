@@ -1,11 +1,8 @@
 class OrdersController < ApplicationController
 	
 	def new 
-	   @user = User.find(params[:user_id])
-	   session[:id] = @user.id
-	   respond_to do |format|
-      		format.js {}
-       end
+
+	   @order = Order.new
 	end
 
 	def create
@@ -17,7 +14,7 @@ class OrdersController < ApplicationController
 		if  @order.save
 			OrderMailer.order_create(@order).deliver 
 		    flash[:success] = "Письмо успешно отправлено"
-			redirect_to current_user
+			redirect_to :back
 		else
 			render 'new'
 		end

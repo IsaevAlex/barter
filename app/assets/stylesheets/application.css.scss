@@ -18,6 +18,15 @@
 @import "bootstrap-sprockets";
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font-url('glyphicons-halflings-regular.eot');
+  src: font-url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+       font-url('glyphicons-halflings-regular.woff') format('woff'),
+       font-url('glyphicons-halflings-regular.ttf') format('truetype'),
+       font-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 .row { margin: 0; padding: 0; }
 
 .service-form{
@@ -79,6 +88,13 @@ h3{
      margin-bottom: 30px;
 }
 
+.order-button{
+     background: #3c3e50;
+     color: #ffffff;
+     display: block;
+     
+}
+
 .home-button{
      background: #3c3e50;
      color: #ffffff;
@@ -115,29 +131,33 @@ h3{
 
 .button.service-button{
     margin-left: 170px; 
+   
+    text-decoration: none;
+    margin-top: 50px;
+     
 }
 
 .button.service-button-close{
     background: #ffffff;
     color: #3c3e50;
     border: 2px solid #3c3e50;
+    
+    text-decoration: none;
+    
 }
 
-.order-button{
-    background: #3c3e50;
-    color: #ffffff;
-    border-radius: 20px;
-    text-decoration: none;
+.button.service-button#modal{
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 1.4em; //font size does not change
+    padding: 10px 14px 10px 14px; //modification doesn't show..
 }
 
-.order-search-button{
-    background: #3c3e50;
-    color: #ffffff;
-    border-radius: 20px;
-    text-decoration: none;
-    padding: 10px 10px;
-    display:block;
-    float:right;
+.button.service-button-close#modal{
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 1.4em; //font size does not change
+    padding: 10px 14px 10px 14px; //modification doesn't show..
 }
 
 .form-control{
@@ -362,7 +382,17 @@ background: #428bca;
    height: 600px;
 }
 
+.btn-group{
+   display:block;
+   float: right;
+   
+}
 
+.btn-content{
+   display:block;
+   float: right;
+   margin: 10px;
+}
 
 
 
