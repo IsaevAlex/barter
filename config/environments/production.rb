@@ -81,10 +81,7 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default :charset => "utf-8"
-  config.action.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: 'barterco.herokuapp.com'}
+ 
   
   
 

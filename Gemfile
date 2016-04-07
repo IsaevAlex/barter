@@ -10,7 +10,7 @@ gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
-gem 'mail'
+
 
 group :production  do
     gem 'pg'

@@ -26,8 +26,20 @@ module Barter
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.initialize_on_precompile = false
 
-  
+    config.action_mailer.default :charset => "utf-8"
+    config.action.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.default_url_options = { host: 'barterco.herokuapp.com'}
     
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => "smtp.gmail.com",
+      :port => 587, 
+      :authentication => "plain",
+      :user_name => 'lexsandr46@gmail.com',
+      :password => 'asensible1995cronos2025'
+    }
+
   
   end
 end
