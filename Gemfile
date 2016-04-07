@@ -10,6 +10,7 @@ gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
 
+
 group :production  do
     gem 'pg'
     gem 'rails_12factor'

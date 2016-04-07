@@ -22,21 +22,5 @@ module Barter
      config.assets.precompile = config.assets.precompile + %w(*.png *.jpg *.jpeg *.gif *.woff *.ttf *.svg *.eot)
      config.assets.paths << Rails.root.join("vendor","assets", "fonts")
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.perform_deliveries = true
-    config.action_mailer.default :charset => "utf-8"
-    
-    config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :authentication => "plain",
-      :user_name => ENV['login'],
-      :password => ENV['password']
-    }
-  end
+   
 end
