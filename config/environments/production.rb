@@ -86,15 +86,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'barterco.herokuapp.com'}
   
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      =>  'app49224341@heroku.com',
-    :password       =>  'pv7ztdpi9206',
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
- }
+  
 
   
 end

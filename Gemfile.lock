@@ -221,6 +221,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   paperclip
   pg
   rails (= 4.2.5.1)
