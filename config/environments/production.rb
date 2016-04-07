@@ -80,11 +80,12 @@ Rails.application.configure do
   config.assets.compress = true
 
 
-  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.default :charset => "utf-8"
   config.action.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'barterco.herokuapp.com'}
+  
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
