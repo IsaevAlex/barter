@@ -33,7 +33,7 @@ module Barter
     config.action_mailer.smtp_settings = {
       :enable_starttls_auto => true,
       :address => "smtp.gmail.com",
-      :port => 587,
+      :port => 587, 
       :authentication => "plain",
       :user_name => 'lexsandr46@gmail.com',
       :password => 'asensible1995cronos2025'
