@@ -26,6 +26,8 @@
                            
 </div>
 <div class="btn-content">
-      <%= link_to "Отправить запрос", new_user_order_path(@service, @order) , class:"button" %>
+      <% unless @service.user == current_user %>
+        <%= link_to "Отправить запрос", new_user_order_path(@service, @order) , class:"button" %>
+      <% end %>
       <%= link_to "Выйти", :back, class:"button service-button-close" %> 
 </div>

@@ -16,5 +16,3 @@
 !/log/.keep
 /tmp
 
-#ignore 
-/config/aplication.rb

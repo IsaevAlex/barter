@@ -1,11 +1,11 @@
-<% @user.favorites.order("created_at asc").each do | favorite | %>
+<% @favorites.each do | favorite | %>
 	  <div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
                     <div class="pull-left image">
                         <%= image_tag favorite.user.image.url, width:"70", height:"70" %>
                     </div>
                     <div class="pull-left meta">
-                        <a href="#"><b><%= favorite.user.company_name %></b></a>
+                        <a href="#"><b><%= link_to favorite.user.company_name, favorite.user %></b></a>
                             добавила предложение
                         <h6 class="text-muted time"><%= favorite.created_at %></h6>
                     </div>
@@ -17,3 +17,4 @@
 		</div>
 	
 <% end %>
+<%= will_paginate @favorites %>

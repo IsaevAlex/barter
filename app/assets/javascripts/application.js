@@ -18,9 +18,7 @@
 //= require_tree .
 
 
-
-
-// sliders
+// sliders for search category
 $(document).ready(function() {
     $('#Carousel').carousel({
         interval: 5000
@@ -34,9 +32,14 @@ dataConfirmModal.setDefaults({
   cancel: 'Отмена'
 });
 
-$('.carousel').carousel({
-    wrap: false
-})
+$(document).ready(function() {
+    $('#carousel-example-generic').carousel({
+        interval: false
+    })
+});
+
+
+
 
 
 
