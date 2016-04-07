@@ -23,13 +23,13 @@ module Barter
      config.assets.paths << Rails.root.join("vendor","assets", "fonts")
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    
     config.assets.initialize_on_precompile = false
 
     config.action_mailer.default :charset => "utf-8"
     config.action.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
-    config.action_mailer.default_url_options = { host: 'barterco.herokuapp.com'}
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     
     config.action_mailer.smtp_settings = {
       :enable_starttls_auto => true,
