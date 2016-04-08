@@ -32,6 +32,7 @@ dataConfirmModal.setDefaults({
   cancel: 'Отмена'
 });
 
+//home sliders
 $(document).ready(function() {
     $('#carousel-example-generic').carousel({
         interval: false

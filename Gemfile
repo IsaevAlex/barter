@@ -6,7 +6,7 @@ gem 'rails', '4.2.5.1'
 
 gem 'will_paginate'
 gem "searchkick"
-gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
 gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
