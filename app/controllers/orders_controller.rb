@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
-	# before_action :find_user, only: [:new]
+	 before_action :find_user, only: [:new]
 
 	def new 
-	   
+	   session[:id] = @user.id
 	   @order = current_user.sender_usered_orders.build
 	end
 
