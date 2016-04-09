@@ -85,13 +85,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false  
   config.action_mailer.default :charset => "utf-8"  
   config.action_mailer.smtp_settings = {  
-    address: "smtp.sparkpostmail.com",
+    address: "smtp.sendgrid.net",
     port: 587,
     domain: "barterco.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    :user_name => 'SMTP_Injection',
-    :password => '9f3b35fbed55e3c64ab77717866bc4247bd148ff'
+    :user_name => 'app49224341@heroku.com',
+    :password => 'pv7ztdpi9206'
   }
 
 
