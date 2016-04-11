@@ -90,8 +90,13 @@ Rails.application.configure do
     domain: "barterco.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
+<<<<<<< HEAD
     :user_name => '',
     :password => ''
+=======
+    :user_name => 'SENDGRID['username']',
+    :password => 'SENDGRID['password']'
+>>>>>>> 32f6626638b50486b60d995d03d1c98a3dca7b55
   }
 
 
