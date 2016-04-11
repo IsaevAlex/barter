@@ -1,0 +1,31 @@
+<div class="row"> 
+  <div class="col-md-10 col-md-offset-1 content">
+       <div class="panel panel-white post panel-shadow">
+           <div class="post-heading">
+                    <div class="pull-left image">
+                        <%= image_tag @service.user.image.url, width:"70", height:"70" %>
+                    </div>
+                    <div class="pull-left meta">
+                        <a href="#"><b><%= @service.user.company_name %></b></a>
+                            добавила предложение
+                        <h6 class="text-muted time"><%= @service.user.created_at %></h6>
+                        
+                    </div>
+                    <% if current_user %>
+                        <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria     -haspopup="true" aria-expanded="false">
+                                      <span class="glyphicon glyphicon-list" aria-hidden="true"></span> 
+                                </button>
+                                <ul class="dropdown-menu">
+                                     <li><%= link_to "В избранное", favorite_service_path(@service, type: "favorite"), method: :put %></li> 
+                                </ul>
+                         </div>
+                    <% end %>
+            </div> 
+            <div class="post-description"> 
+                 <%= @service.content %>
+            </div>
+                           
+        </div>    
+  </div>
+</div>

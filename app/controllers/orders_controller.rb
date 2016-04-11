@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-	 before_action :find_user, only: [:new]
-
 	def new 
-	   session[:id] = @user.id
+	   @service = Service.find(params[:user_id])
+	   session[:id] = @service.user.id
 	   @order = current_user.sender_usered_orders.build
 	end
 
@@ -24,9 +23,4 @@ class OrdersController < ApplicationController
 			params.require(:order).permit(:description)
 		end
         
-
-		def find_user
-			@user = User.find(params[:user_id])
-		end
-
 end

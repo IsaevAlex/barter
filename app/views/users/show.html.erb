@@ -29,10 +29,7 @@
                     <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
                     <li><a data-toggle="tab" href="#panel2">Новости</a></li>
                     <li><a data-toggle="tab" href="#panel3">Избранные</a></li>
-                    <% unless @user == current_user %>
-                    	   <li><%= link_to "Начать бартерную торговлю", new_user_order_path(@user, @order) ,  class: "order-button " %></li>
-                    <% end %>
-                    <% if can? :create, @user %>
+                   <% if can? :create, @user %>
 					                <li> <%= link_to "Добавить предложение", new_service_path, remote: true, class: "order-button ", data: { toggle: "modal", target: "#newModal" } %></li>
 					          <% end %>
          </ul>

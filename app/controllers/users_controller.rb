@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	# before_action :find_user_id, only: [:followers, :follow]
 
 	def show
+		
 		@services = @user.services.paginate(:page => params[:page], :per_page => 5)
 		@favorites = @user.favorites.paginate(:page => params[:page], :per_page => 5)
 	end
