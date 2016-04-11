@@ -90,8 +90,8 @@ Rails.application.configure do
     domain: "barterco.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    :user_name => 'app49224341@heroku.com',
-    :password => 'pv7ztdpi9206'
+    :user_name => '',
+    :password => ''
   }
 
 
