@@ -90,8 +90,8 @@ Rails.application.configure do
     domain: "barterco.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: => ENV.fetch("SPARKPOST_SMTP_USERNAME"),
-    :password => ENV.fetch("SPARKPOST_SMTP_PASSWORD")
+    user_name: ENV.fetch("SPARKPOST_SMTP_USERNAME"),
+    password:  ENV.fetch("SPARKPOST_SMTP_PASSWORD")
 
   }
 
