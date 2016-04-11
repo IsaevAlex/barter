@@ -85,18 +85,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false  
   config.action_mailer.default :charset => "utf-8"  
   config.action_mailer.smtp_settings = {  
-    address: "smtp.sendgrid.net",
+    address: ENV.fetch("SPARKPOST_SMTP_HOST"),
     port: 587,
     domain: "barterco.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-<<<<<<< HEAD
-    :user_name => '',
-    :password => ''
-=======
-    :user_name => 'SENDGRID['username']',
-    :password => 'SENDGRID['password']'
->>>>>>> 32f6626638b50486b60d995d03d1c98a3dca7b55
+    user_name: => ENV.fetch("SPARKPOST_SMTP_USERNAME"),
+    :password => ENV.fetch("SPARKPOST_SMTP_PASSWORD")
+
   }
 
 
