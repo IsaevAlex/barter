@@ -15,7 +15,7 @@
 		 			<div class="panel panel-white post panel-shadow">
 		  				<div class="post-heading">
 		                	<div class="pull-left image">
-		                        <%= image_tag service.user.image.url(:thumb) %>
+		                        <%= image_tag service.user.image.url, width:"70", height:"70" %>
 		                    </div>
 		                    <div class="pull-left meta">
 		                       	 <a href="#"><b><%= link_to service.user.company_name, service.user %></b></a>
