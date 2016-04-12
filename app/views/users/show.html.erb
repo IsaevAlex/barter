@@ -4,7 +4,6 @@
 		<h4><%= image_tag @user.image.url(:medium) %></h4>
 		<h1><%= @user.company_name %></h1>
 		<p>Зарегистрирован <%= @user.confirmed_at %></p>
-		<p>Вид деятельности <%= @user.category.name %></p>
 		<p>Номер телефона <%= @user.phone_number %></p>
 		<p> Местоположение <%= @user.city %></p>
 

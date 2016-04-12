@@ -48,10 +48,7 @@
                      
                     </div>
                     <div id="panel2" class="tab-pane fade"><br>
-                        <div class="form-group">
-                            <h4>Выберите сферу вашей деятельности:</h4>
-                            <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "Выберите категорию"} , {class: "form-control", id:"tab_2"} %>
-                        </div>
+                       
                         <div class="form-group">
                             <h4>Номер телефона:</h4>
                             <%= f.text_field :phone_number, class:"form-control", id:"tab_2" %>
