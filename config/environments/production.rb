@@ -91,7 +91,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORDs']
+    password: ENV['SENDGRID_PASSWORD']
 
   }
 
