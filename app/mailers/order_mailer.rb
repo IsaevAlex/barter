@@ -4,6 +4,6 @@ class OrderMailer < ApplicationMailer
 		
 		mail(to: @order.recipient_user.email,
 			 subject: "Вам прислали сообщение",
-			 from: "services@mydomain.com") 
+			 from: "barterco@service.com") 
 	end
 end

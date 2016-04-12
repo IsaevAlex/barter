@@ -23,9 +23,7 @@
 		                       	 <h6 class="text-muted time"><%= service.user.created_at %></h6>
 								  
 		                    </div>
-		                    <% unless service.user == current_user %>
-                    			 <%= link_to "Начать бартерную торговлю", new_user_order_path(service.user, @order) %>
-                    	    <% end %>
+		                     <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default btn-content"  %>   
 		                </div> 
 		                <div class="post-description"> 
 		                  		<%= service.content %>
@@ -47,4 +45,11 @@
     		</div>
   		</div>
 	</div>
+
+	<div class="modal fade" id="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
     	
