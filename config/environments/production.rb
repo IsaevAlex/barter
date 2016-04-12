@@ -79,19 +79,19 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
   config.assets.compress = true
 
-  
+  config.action_mailer.default_url_options = { :host => 'barterco.herokuapp.com' }  
+  config.action_mailer.perform_deliveries = true  
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"  
-  config.action_mailer.smtp_settings = {  
-    address: ENV.fetch("SPARKPOST_SMTP_HOST"),
-    port: 587,
-    #domain: ENV.fetch("SMTP_DOMAIN"),
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV.fetch("SPARKPOST_SMTP_USERNAME"),
-    password:  ENV.fetch("SPARKPOST_SMTP_PASSWORD")
-
-  }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :user_name => '6ee46b474ee8ca',
+  :password => 'b26c74ba51d64d',
+  :address => 'mailtrap.io',
+  :domain => 'mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+}
 
 
 
