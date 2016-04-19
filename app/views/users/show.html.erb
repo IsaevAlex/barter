@@ -6,28 +6,28 @@
 		<p>Зарегистрирован <%= @user.confirmed_at %></p>
 		<p>Номер телефона <%= @user.phone_number %></p>
 		<p> Местоположение <%= @user.city %></p>
-
-		<p>
+    <p>
 			<div class="followers_followable_count">
 				<a href="<%= follow_user_path  %>">Подписки <span class="badge"><%= @user.follow_count %></span></a> 	
 			    <a href="<%= followers_user_path %>">Подписчики <span class="badge"><%= @user.followers_count %></span></a>	
 			</div>
 		</p>
-		
-		
-		<% if user_signed_in? %>
-  			<div id="follow_user">
-    			<%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
-  			</div>
+    <% if user_signed_in? %>
+        <div id="follow_user">
+          <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
+        </div>
+    <% end %><br><br>
 
-		<% end %>
-		
-	</div>
+    <h4>Уведомления</h4>
+     <%= render 'orders/recipient_orders_off' %> 
+    
+  </div>
 	<div class="col-md-6">
 	       <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
                     <li><a data-toggle="tab" href="#panel2">Новости</a></li>
                     <li><a data-toggle="tab" href="#panel3">Избранные</a></li>
+                    <li><a data-toggle="tab" href="#panel4">Мои запросы</a></li>
                    <% if can? :create, @user %>
 					                <li> <%= link_to "Добавить предложение", new_service_path, remote: true, class: "order-button ", data: { toggle: "modal", target: "#newModal" } %></li>
 					          <% end %>
@@ -42,7 +42,21 @@
               <div id="panel3" class="tab-pane fade">
                     <%= render 'services/favorite_services' %>            
               </div>
-		     </div>
+              <div  id="panel4" class="tab-pane fade">
+                   <ul class="nav nav-tabs">
+                   		<li class="active"><a data-toggle="tab" href="#panel5">Входящие запросы</a></li>
+                   		<li><a data-toggle="tab" href="#panel6">Исходящие запросы</a></li><br>
+						<div class="tab-content">
+							 <div id="panel5" class="tab-pane fade">
+                    			<%= render 'orders/recipient_orders' %>						
+			        		</div>
+              				<div id="panel6" class="tab-pane fade">
+                    			<%=  render 'orders/sender_orders' %>            
+              				</div>
+						</div>
+					</ul>             
+              </div>
+		 </div>
 	 </div>
 </div>
 
@@ -61,6 +75,13 @@
 </div>
 
 <div class="modal fade" id="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="showOrderModal">
   <div class="modal-dialog">
     <div class="modal-content">
     </div>

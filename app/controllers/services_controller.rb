@@ -16,9 +16,22 @@ class ServicesController < ApplicationController
 
 	def new
 		@service = Service.new
+		
 		respond_to do |format|
       		format.js {}
     	end
+	end
+
+	def create
+		@service = current_user.services.build(service_params)
+		
+		if  @service.save
+			flash[:success] = "Услуга успешно создана"
+			redirect_to current_user
+		else
+			flash[:notice] = "Ошшибка :("
+      		redirect_to :back
+  		end
 	end
 
 	def show
@@ -43,15 +56,7 @@ class ServicesController < ApplicationController
 	    end
     end
 
-	def create
-		@service = current_user.services.build(service_params)
-		if  @service.save
-			flash[:success] = "Услуга успешно создана"
-			redirect_to current_user
-		else
-			render 'new'
-		end
-	end
+	
 	
 	def edit
 		respond_to do |format|
@@ -80,6 +85,6 @@ class ServicesController < ApplicationController
 		end
 
 		def service_params
-			params.require(:service).permit(:content)
+			params.require(:service).permit(:content, images_attributes: [:id, :avatar, :_destroy])
 		end
 end

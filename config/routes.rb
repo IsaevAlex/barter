@@ -8,7 +8,7 @@ Rails.application.routes.draw do
    resources :users , only: [:show, :index] do
    		
    		resources :follows, :only => [:create, :destroy]
-   		resources :orders, only: [:new, :create]
+   		resources :orders, only: [:new, :create, :show]
    		member do
 			   get 'follow'
 			   get 'followers'   			
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
    end
 
    resources :services do
+         resources :images
          collection do
             get :autocomplete # <= add this line
          end

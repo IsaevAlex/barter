@@ -7,6 +7,9 @@ class Service < ActiveRecord::Base
 
     has_many :favorite_services  
     has_many :favorited_by, through: :favorite_services, source: :service
-   
+    has_many :images, dependent: :destroy
+    accepts_nested_attributes_for :images
+               
+          
 
 end

@@ -1,8 +1,20 @@
 class OrdersController < ApplicationController
+	before_action :find_order, only: [ :destroy, :show]
+
 	def new 
 	   @service = Service.find(params[:user_id])
 	   session[:id] = @service.user.id
 	   @order = current_user.sender_usered_orders.build
+	end
+
+	def show
+		
+
+		respond_to do |format|
+      		format.js {}
+    	end
+    	@order.read = true
+    	@order.save
 	end
 
 	def create
@@ -19,6 +31,11 @@ class OrdersController < ApplicationController
 	end
 
 	private
+
+		def find_order
+			@order = Order.find(params[:id])
+		end
+
 		def order_params
 			params.require(:order).permit(:description)
 		end

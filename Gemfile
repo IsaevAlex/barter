@@ -6,6 +6,7 @@ gem 'rails', '4.2.5.1'
 
 gem 'will_paginate'
 gem "searchkick"
+gem "nested_form"
 
 gem "paperclip"
 gem 'cancan'

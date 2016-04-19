@@ -1,0 +1,18 @@
+<% @recipient_usered_orders.each do | recipient |%>
+	<div class="panel panel-white post panel-shadow">
+  			   <div class="post-heading">
+                    <div class="pull-left image">
+                         <%= image_tag recipient.sender_user.image.url, width:"70", height:"70" %>
+                    </div>
+                    <div class="pull-left meta">
+                        <a href="#"><b><%= link_to recipient.sender_user.company_name, recipient.sender_user  %></b></a>
+                            отправила запрос
+                        <h6 class="text-muted time"><%= recipient.created_at %></h6>
+                    </div>
+                    
+                </div> 
+                <div class="post-description"> 
+                    <%= recipient.description %>
+                </div>
+		</div>
+<% end %>
