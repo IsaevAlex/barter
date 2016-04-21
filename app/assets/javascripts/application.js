@@ -18,6 +18,7 @@
 //= require_tree .
 
 
+
 // sliders for search category
 $(document).ready(function() {
     $('#Carousel').carousel({

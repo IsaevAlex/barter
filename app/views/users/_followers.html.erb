@@ -6,8 +6,8 @@
 <div class="row">
 	<% @user.followers.each do |user| %>
 		<div class="col-md-7 col-md-offset-1">
-				<div class="panel panel-white post panel-shadow">
-	  			     <div class="post-heading">
+			<div class="panel panel-white post panel-shadow">
+	  			   <div class="post-heading">
 	                    <div class="pull-left image">
 	                         <%= image_tag user.image.url, width:"70", height:"60" %>
 						</div>
@@ -15,10 +15,8 @@
 	                         <a href="#"><b><%= link_to user.company_name, user %></b></a>
 	                         <h6 class="text-muted time">Была зарегистрирована <%= user.confirmed_at %></h6>
 					    </div><br>
-					    
-
-					  </div> 
-               	</div>	
-			</div>
+					</div> 
+			 </div>	
+		</div>
 	<% end %>
 </div>

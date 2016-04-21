@@ -8,11 +8,10 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		
-
 		respond_to do |format|
       		format.js {}
     	end
+    	
     	@order.read = true
     	@order.save
 	end

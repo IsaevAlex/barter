@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    resources :users , only: [:show, :index] do
    		
    		resources :follows, :only => [:create, :destroy]
+         
    		resources :orders, only: [:new, :create, :show]
    		member do
 			   get 'follow'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
    		end
    				
    end
+   resources :locations
 
    resources :services do
          resources :images

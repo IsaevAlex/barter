@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   belongs_to :category
   has_many :services
+  has_many :locations
 
   has_many :sender_usered_orders, foreign_key: 'sender_user_id', class_name: 'Order'
   has_many :recipient_usered_orders, foreign_key: 'recipient_user_id', class_name: 'Order'

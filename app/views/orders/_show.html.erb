@@ -1,20 +1,16 @@
 <div class="panel panel-white post panel-shadow">
-            <div class="post-heading">
-                    <div class="pull-left image">
-                        <%= image_tag @order.sender_user.image.url, width:"70", height:"70" %>
-                    </div>
-                    <div class="pull-left meta">
-                        <a href="#"><b><%= @order.sender_user.company_name %></b></a>
-                            добавила предложение
-                        <h6 class="text-muted time"><%= @order.created_at %></h6>
-                        
-                    </div>
-                    <%= link_to "Выйти", :back , class:"btn btn-default btn-content" %>  
-            </div> 
-            <div class="post-description"> 
-                 <%= @order.description %>
-                 
-            </div>
-            
-            
+    <div class="post-heading">
+        <div class="pull-left image">
+            <%= image_tag @order.sender_user.image.url, width:"70", height:"70" %>
+        </div>
+        <div class="pull-left meta">
+            <a href="#"><b><%= @order.sender_user.company_name %></b></a>
+                добавила предложение
+            <h6 class="text-muted time"><%= @order.created_at %></h6>
+        </div>
+        <%= link_to "Выйти", :back , class:"btn btn-default btn-content" %>  
+    </div> 
+    <div class="post-description"> 
+        <%= @order.description %>
+    </div>
 </div>

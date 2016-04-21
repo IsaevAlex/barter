@@ -7,7 +7,8 @@ gem 'rails', '4.2.5.1'
 gem 'will_paginate'
 gem "searchkick"
 gem "nested_form"
-
+gem 'geocoder'
+gem 'gmaps4rails'
 gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"

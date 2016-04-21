@@ -1,0 +1,15 @@
+<div class="row">
+	 <h3>Добавление адреса</h3>
+	 <div class="col-md-10 col-md-offset-1 content">
+	 	<%= form_for [@location], :html=>{ :multipart => true } do |f| %>
+			<%= render 'layouts/error_messages', object: f.object %>
+			<div class="form-group">
+				<p>Адрес</p>
+				<%= f.text_field :address %>
+			</div>
+			<%= f.submit %>
+
+		<% end %>
+	 </div>
+</div>
+

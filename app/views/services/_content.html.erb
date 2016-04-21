@@ -1,37 +1,31 @@
 	<p><h4>Количество предложений: <%= @user.services.count %></h4></p>
 	<% if @user.services.any? %>
-	<% @services.order("created_at desc").each do |service| %>
-			
-  			<div class="panel panel-white post panel-shadow">
-  			        <div class="post-heading">
-                    <div class="pull-left image">
-                        <%= image_tag service.user.image.url, width:"70", height:"70" %>
-                    </div>
-                    <div class="pull-left meta">
-                        
-                            <b><%= link_to service.user.company_name %></b>
+	     <% @services.order("created_at desc").each do |service| %>
+		        <div class="panel panel-white post panel-shadow">
+  			         <div class="post-heading">
+                      <div class="pull-left image">
+                           <%= image_tag service.user.image.url, width:"70", height:"70" %>
+                      </div>
+                      <div class="pull-left meta">
+                          <b><%= link_to service.user.company_name %></b>
                             добавила предложение
-                        
-                        <h6 class="text-muted time"><%= service.created_at %></h6>
-                    </div>
-                    <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default btn-content"  %>   
+                          <h6 class="text-muted time"><%= service.created_at %></h6>
+                      </div>
+                      <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default btn-content"  %>   
                 </div> 
                 <div class="post-description"> 
-                  <% if can? :update, service %>
-                      <%= link_to service.content, edit_service_path(service) , remote: true,  data: { toggle: "modal", target: "#editModal" } %>
-                  <% else %>
-                       <%= service.content %>
+                      <% if can? :update, service %>
+                          <%= link_to service.content, edit_service_path(service) , remote: true,  data: { toggle: "modal", target: "#editModal" } %>
+                      <% else %>
+                          <%= service.content %>
                       
-                  <% end %>
-                  <% if can? :destroy, service %>
-                 		  <%= link_to "Удалить", [ service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
-                  <% end %>
-               	     
-                </div>
-                
+                      <% end %>
+                      <% if can? :destroy, service %>
+                 		     <%= link_to "Удалить", [ service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
+                      <% end %>
+               	</div>
             </div>
-            
-  	<% end %>
+        <% end %>
         <%= will_paginate @services %>
-  	<% end %>
+  <% end %>
 

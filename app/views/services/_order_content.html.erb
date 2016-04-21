@@ -6,7 +6,7 @@
                         <%= image_tag @service.user.image.url, width:"70", height:"70" %>
                     </div>
                     <div class="pull-left meta">
-                        <a href="#"><b><%= @service.user.company_name %></b></a>
+                        <b><%= link_to @service.user.company_name, @service.user %></b>
                             добавила предложение
                         <h6 class="text-muted time"><%= @service.user.created_at %></h6>
                         

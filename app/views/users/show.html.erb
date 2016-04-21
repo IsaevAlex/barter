@@ -1,28 +1,25 @@
 <div class="row">
-	<div class="col-md-4 col-md-offset-1">
-		
-		<h4><%= image_tag @user.image.url(:medium) %></h4>
-		<h1><%= @user.company_name %></h1>
-		<p>Зарегистрирован <%= @user.confirmed_at %></p>
-		<p>Номер телефона <%= @user.phone_number %></p>
-		<p> Местоположение <%= @user.city %></p>
-    <p>
-			<div class="followers_followable_count">
-				<a href="<%= follow_user_path  %>">Подписки <span class="badge"><%= @user.follow_count %></span></a> 	
-			    <a href="<%= followers_user_path %>">Подписчики <span class="badge"><%= @user.followers_count %></span></a>	
-			</div>
-		</p>
-    <% if user_signed_in? %>
-        <div id="follow_user">
-          <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
-        </div>
-    <% end %><br><br>
+  	<div class="col-md-4 col-md-offset-1">
+      		<h4><%= image_tag @user.image.url(:medium) %></h4>
+      		<h1><%= @user.company_name %></h1>
+      		<p>Зарегистрирован <%= @user.confirmed_at %></p>
+      		<p>Номер телефона <%= @user.phone_number %></p>
+      		<p> Местоположение <%= link_to "Добавить", new_location_path, class:"btn btn-default" %></p>
+          <p>
+      			<div class="followers_followable_count">
+      				<a href="<%= follow_user_path  %>">Подписки <span class="badge"><%= @user.follow_count %></span></a> 	
+      			    <a href="<%= followers_user_path %>">Подписчики <span class="badge"><%= @user.followers_count %></span></a>	
+      			</div>
+      		</p>
+          <% if user_signed_in? %>
+                <div id="follow_user">
+                    <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
+                </div>
+          <% end %><br>
+          <%= render 'orders/recipient_orders_off' %> 
 
-    <h4>Уведомления</h4>
-     <%= render 'orders/recipient_orders_off' %> 
-    
-  </div>
-	<div class="col-md-6">
+     </div>
+	   <div class="col-md-6">
 	       <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
                     <li><a data-toggle="tab" href="#panel2">Новости</a></li>
@@ -44,19 +41,19 @@
               </div>
               <div  id="panel4" class="tab-pane fade">
                    <ul class="nav nav-tabs">
-                   		<li class="active"><a data-toggle="tab" href="#panel5">Входящие запросы</a></li>
+                   		<li><a data-toggle="tab" href="#panel5">Входящие запросы</a></li>
                    		<li><a data-toggle="tab" href="#panel6">Исходящие запросы</a></li><br>
-						<div class="tab-content">
-							 <div id="panel5" class="tab-pane fade">
-                    			<%= render 'orders/recipient_orders' %>						
-			        		</div>
-              				<div id="panel6" class="tab-pane fade">
-                    			<%=  render 'orders/sender_orders' %>            
-              				</div>
-						</div>
-					</ul>             
-              </div>
-		 </div>
+                   </ul>  
+						       <div class="tab-content">
+  							       <div id="panel5" class="tab-pane fade">
+                      		  <%= render 'orders/recipient_orders' %>						
+  			        	     </div>
+                	     <div id="panel6" class="tab-pane fade">
+                      			<%=  render 'orders/sender_orders' %>            
+                	     </div>
+						       </div>
+					     </div>
+		      </div>
 	 </div>
 </div>
 

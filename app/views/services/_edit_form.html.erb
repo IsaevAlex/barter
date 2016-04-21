@@ -1,13 +1,13 @@
 <div class="service-form">
-<h3>Редактирование предложения</h3>
-<%= form_for [ @service] , :html=>{ :multipart => true } do |f| %>
-	<%= render 'layouts/error_messages', object: f.object %>
-	
-	<div class="form-group" >
-		<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
-	</div>
+	<h3>Редактирование предложения</h3>
+	<%= form_for [ @service] , :html=>{ :multipart => true } do |f| %>
+		<%= render 'layouts/error_messages', object: f.object %>
+		
+		<div class="form-group" >
+			<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
+		</div>
 
-	<%= f.submit "Обновить", class: "button service-button" %>
-	<%= link_to "Отмена", current_user, class:"button service-button-close" %>
-<% end %>
+		<%= f.submit "Обновить", class: "button service-button" %>
+		<%= link_to "Отмена", current_user, class:"button service-button-close" %>
+	<% end %>
 </div>

@@ -1,29 +1,22 @@
 <div class="service-form">
-<h3>Добавить предложение</h3>
-<%= nested_form_for [@service], :html=>{ :multipart => true } do |f| %>
-	<%= render 'layouts/error_messages', object: f.object %>
-	
-	<div class="form-group" >
-		<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
-	</div>
-
-	
+	<h3>Добавить предложение</h3>
+	<%= nested_form_for [@service], :html=>{ :multipart => true } do |f| %>
+		<%= render 'layouts/error_messages', object: f.object %>
+		
+		<div class="form-group" >
+			<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
+		</div>
 		<%= f.fields_for :images do |image| %>  
-    		<% if image.object.new_record? %>
-      			<%= image.file_field :avatar %>
-    		<% else %> 
-      			<%= image_tag avatar.url(:thumb) %>
-      			<%= image.hidden_field :_destroy %>
-      			<%= image.link_to_remove "X" %>
-    		<% end %>
-  		<% end %>
-
-  		<p><%= f.link_to_add "Добавить изображение", :images %></p>
-	
-	
-
-	
-	<%= f.submit "Добавить", class: "button service-button" %>
-	<%= link_to "Отмена", :back , class: "button service-button-close" %>
-<% end %>
+	    	<% if image.object.new_record? %>
+	      		<%= image.file_field :avatar %>
+	    	<% else %> 
+	      		<%= image_tag avatar.url(:thumb) %>
+	      		<%= image.hidden_field :_destroy %>
+	      		<%= image.link_to_remove "X" %>
+	    	<% end %>
+	  	<% end %>
+		<p><%= f.link_to_add "Добавить изображение", :images %></p>
+		<%= f.submit "Добавить", class: "button service-button" %>
+		<%= link_to "Отмена", :back , class: "button service-button-close" %>
+	<% end %>
 </div>
