@@ -1,14 +1,13 @@
 class ServicesController < ApplicationController
-	before_action :find_service, only: [ :destroy, :edit, :update, :show, :favorite, :share]
+	before_action :find_service, only: [ :destroy, :edit, :update, :show, :favorite, :share ]
     respond_to :html, :json
     
     def autocomplete
     	render json: Service.search(params[:query], autocomplete: true, limit: 10).map(&:content)
     end	
 
-    def share
-    end 
-    
+     
+
  	def index
         if params[:query].present?
   			@services = Service.search(params[:query], page: params[:page], per_page: 5)

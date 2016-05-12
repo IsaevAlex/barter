@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
    devise_for :users
    root 'static_pages#home'
-   match '/share',    to: 'services#share',    via: 'get'  
+   
 
    get 'follows/followers/', to: 'follows#followers'
    get 'follows/follow/', to: 'follows#follow'
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
          resources :images
          resources :comments   
          put :favorite, on: :member
+         put :share, on: :member 
    end
    
 end
