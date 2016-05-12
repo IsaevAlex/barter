@@ -46,8 +46,8 @@
 document.write(VK.Share.button({
   url: 'http://barterco.herokuapp.com',
   title: 'Сайт бартерных отношений',
-  description: '<%= @service.content %>',
-  image: '<%= @services.images.first.avatar.url %>',
+  description: '#{@service.content}',
+  image: '#{@services.images.first.avatar.url} ',
   noparse: true
 }));
 -->
