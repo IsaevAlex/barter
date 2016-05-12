@@ -11,8 +11,7 @@ class UsersController < ApplicationController
 		@locations = @user.locations
 	end
 
-	def share
-	end
+
 
 	def index
 		if params[:category].blank?
