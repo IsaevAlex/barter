@@ -36,16 +36,16 @@
                     <p><%= image_tag service_image.avatar.url(:medium) %></p>
                 <% end %>
                 
-            <script type="text/javascript">(function() {
-  if (window.pluso)if (typeof window.pluso.start == "function") return;
-  if (window.ifpluso==undefined) { window.ifpluso = 1;
-    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-    var h=d[g]('body')[0];
-    h.appendChild(s);
-  }})();</script>
-<div class="pluso" data-background="#ebebeb" data-options="big,square,line,horizontal,counter,theme=04" data-services="vkontakte,facebook,twitter,google,moimir,print"></div>
+                <!-- Put this script tag to the place, where the Share button will be -->
+                <script type="text/javascript">
+                document.write(VK.Share.button({
+                  url: 'http://mysite.com',
+                  title: 'Хороший сайт',
+                  description: 'Это мой собственный сайт, я его очень долго делал',
+                  image: 'http://mysite.com/mypic.jpg',
+                  noparse: true
+                }));
+                </script>
          
            
        
