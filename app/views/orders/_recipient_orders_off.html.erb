@@ -1,8 +1,7 @@
 
 <% @recipient_usered_orders.each do | recipient |%>
   <% if recipient.read ==  false && recipient.sender_user != current_user %>
-    <h4>Непрочитанные сообщения</h4>
-	   <div class="panel panel-white post panel-shadow">
+       <div class="panel panel-white post panel-shadow">
             <div class="post-heading">
                 <div class="pull-left image">
                      <%= image_tag recipient.sender_user.image.url, width:"70", height:"70" %>

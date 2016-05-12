@@ -7,14 +7,10 @@
 			<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
 		</div>
 		<%= f.fields_for :images do |image| %>  
-	    	<% if image.object.new_record? %>
-	      		<%= image.file_field :avatar %>
-	    	<% else %> 
-	      		<%= image_tag avatar.url(:thumb) %>
-	      		<%= image.hidden_field :_destroy %>
-	      		<%= image.link_to_remove "X" %>
-	    	<% end %>
-	  	<% end %>
+	    	 <%= image.file_field(:avatar) %>
+      		 <%= image_tag image.object.avatar.url(:thumb) if image.object.avatar?  %>
+      		 <%= image.link_to_remove "Удалить" %>
+	    <% end %>
 		<p><%= f.link_to_add "Добавить изображение", :images %></p>
 		<%= f.submit "Добавить", class: "button service-button" %>
 		<%= link_to "Отмена", :back , class: "button service-button-close" %>

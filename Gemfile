@@ -8,10 +8,15 @@ gem 'will_paginate'
 gem "searchkick"
 gem "nested_form"
 gem 'geocoder'
-gem 'gmaps4rails'
 gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
+
+
+group :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara'
+end
 
 
 group :production  do
@@ -54,7 +59,7 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
   gem 'byebug'
    # Access an IRB console on exception pages or by using <%= console %> in views

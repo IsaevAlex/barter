@@ -1,0 +1,25 @@
+<% @user.all_following.each do | user | %>
+  <% user.services.order("created_at desc").each do |service| %>
+      
+      <% if service.read ==  false && service.user != current_user %>
+
+          <div class="panel panel-white post panel-shadow">
+                 <div class="post-heading">
+                          <div class="pull-left image">
+                              <%= image_tag service.user.image.url, width:"70", height:"70" %>
+                          </div>
+                          <div class="pull-left meta">
+                              <a href="#"><b><%= link_to service.user.company_name, service.user %></b></a>
+                                  добавила предложение
+                              <h6 class="text-muted time"><%= service.user.created_at %></h6>
+                          </div>
+                          <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default btn-content"  %> 
+                      </div> 
+                      <div class="post-description"> 
+                          <%= service.content %>
+                      </div>
+           </div>
+       <% end %>
+  <% end %>
+    
+<% end %>

@@ -4,9 +4,11 @@ class UsersController < ApplicationController
 
 	def show
 		@recipient_usered_orders = @user.recipient_usered_orders.all
+		@recipient_count = @user.recipient_usered_orders.where(read:false).count
 		@sender_usered_orders = @user.sender_usered_orders.all
 		@services = @user.services.paginate(:page => params[:page], :per_page => 5)
 		@favorites = @user.favorites.paginate(:page => params[:page], :per_page => 5)
+		@locations = @user.locations
 	end
 
 	def index
@@ -19,6 +21,8 @@ class UsersController < ApplicationController
 		end
 		
 	end
+
+	
 
 	def follow
 	end

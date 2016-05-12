@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   belongs_to :category
   has_many :services
@@ -14,6 +15,8 @@ class User < ActiveRecord::Base
   
   has_many :favorite_services
   has_many :favorites, through: :favorite_services, source: :service
+  
+  has_many :comments
   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates :name, :last_name, :email, :company_name, :description,   presence: true

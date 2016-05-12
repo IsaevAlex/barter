@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
    devise_for :users
    root 'static_pages#home'
+  
 
    get 'follows/followers/', to: 'follows#followers'
    get 'follows/follow/', to: 'follows#follow'
@@ -20,9 +21,7 @@ Rails.application.routes.draw do
 
    resources :services do
          resources :images
-         collection do
-            get :autocomplete # <= add this line
-         end
+         resources :comments   
          put :favorite, on: :member
    end
    

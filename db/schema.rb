@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419132408) do
+ActiveRecord::Schema.define(version: 20160510223558) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "service_id"
   end
 
   create_table "favorite_services", force: :cascade do |t|
@@ -71,19 +79,16 @@ ActiveRecord::Schema.define(version: 20160419132408) do
   create_table "services", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "read",       default: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "name"
-    t.string   "last_name"
-    t.string   "middle_name"
     t.string   "company_name"
     t.text     "description"
-    t.string   "city"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

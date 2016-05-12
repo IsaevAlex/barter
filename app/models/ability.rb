@@ -10,6 +10,10 @@ class Ability
          service.user == user
      end  
 
+     can :destroy , Comment do |comment|
+         comment.try(:user_id) == user.id
+     end
+
      can :destroy, Service do | service |
          service.user == user
      end

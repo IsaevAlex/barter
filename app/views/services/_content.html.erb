@@ -1,5 +1,4 @@
-	<p><h4>Количество предложений: <%= @user.services.count %></h4></p>
-	<% if @user.services.any? %>
+<% if @user.services.any? %>
 	     <% @services.order("created_at desc").each do |service| %>
 		        <div class="panel panel-white post panel-shadow">
   			         <div class="post-heading">
@@ -14,15 +13,17 @@
                       <%= link_to "Подробнее", service , remote: true,  data: { toggle: "modal", target: "#showModal" }, class:"btn btn-default btn-content"  %>   
                 </div> 
                 <div class="post-description"> 
-                      <% if can? :update, service %>
-                          <%= link_to service.content, edit_service_path(service) , remote: true,  data: { toggle: "modal", target: "#editModal" } %>
-                      <% else %>
+                     
                           <%= service.content %>
                       
-                      <% end %>
+                     
                       <% if can? :destroy, service %>
                  		     <%= link_to "Удалить", [ service], method: :delete, data: { confirm: "Вы уверены?" }, class:"btn btn-default" %>
                       <% end %>
+                      <% if can? :update, service %>
+                         <%= link_to "Редактировать", edit_service_path(service) , remote: true,  data: { toggle: "modal", target: "#editModal" } , class:"btn btn-default" %>
+                      <% end %>
+                      
                	</div>
             </div>
         <% end %>

@@ -1,3 +1,8 @@
+<!-- Put this script tag to the <head> of your page -->
+
+
+<!-- Put this script tag to the place, where the Share button will be -->
+
 <div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
                     <div class="pull-left image">
@@ -16,11 +21,13 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                      <li><%= link_to "В избранное", favorite_service_path(@service, type: "favorite"), method: :put %></li> 
-                                    <% unless @service.user == current_user %>
+                                     <% unless @service.user == current_user %>
                                           <li><%= link_to "Отправить запрос", new_user_order_path(@service, @order) %></li>
-        
-                                    <% end %>
-                                    <li><%= link_to "Выйти", :back %></li>
+                                     <% end %>
+                                     <% unless @service.favorited_by.empty? %>
+                                          <li><%= link_to "Удалить из избранных", favorite_service_path(@service, type: "  unfavorite"), method: :put %></li> 
+                                     <% end %>
+                                     <li><%= link_to "Выйти", :back %></li>
                                 </ul>
                          </div>
                     <% end %>
@@ -31,9 +38,47 @@
             <div class="post-description">
                 <% @service.images.each do | service_image | %>
                     <p><%= image_tag service_image.avatar.url(:medium) %></p>
-                    
-                 <% end %>
+                <% end %>
+               
+
+<script type="text/javascript">
+<!--
+document.write(VK.Share.button({
+  url: 'http://barterco.herokuapp.com',
+  title: 'Сайт бартерных отношений',
+  description: '<%= @service.content %>',
+  image: '<%= @services.images.first.avatar.url %>',
+  noparse: true
+}));
+-->
+</script>
             </div>
+            
+          
+
+            <div class="service-form">
+                 <% if user_signed_in?  %>
+                    <h2>Добавить отзыв</h2>
+                    <%= render 'comments/form' %> <br>
+                <% else %>
+                    <p>Чтобы добавить отзыв,вы должны зарегистрироваться</p>    
+                <% end %><br>
+                <p><h4>Отзывы: <%= @service.comments.count %></h4></p>
+    
+            <% @service.comments.each do |comment| %>
+                <div class="well">
+                    <h4><%= comment.comment %></h4>
+                    <% if comment.user %>
+                        <p> Добавила  <%= comment.user.company_name %> </p>
+                        <% if can? :destroy, comment %>
+                            <%= link_to "Удалить", [comment.service, comment], method: :delete, data: { confirm: "Вы уверены?" } %>
+                        <% end %>
+                    <% end %>
+                </div>  
+            <% end %>
+
+            </div>
+           
             
 </div>
 

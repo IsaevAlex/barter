@@ -10,7 +10,7 @@
 	<h1>BarterCo</h1>
 	<span>Онлайн площадка для бартерных отошений</span><br>
 	<div class="email_text">
-		<p style= "line-height: 2.0em;">Приветствуем <%= @order.recipient_user.last_name %> <%= @order.recipient_user.name %> <%= @order.recipient_user.middle_name %>!!!</p>
+		<p style= "line-height: 2.0em;">Приветствуем <%= @order.recipient_user.company_name %>!!!</p>
 		<p> Организация <%=  @order.sender_user.company_name %> заинтересована в ваших услугах</p>
 		<p> Вам прислали сообщение:</p><br>
 		<div class="order">

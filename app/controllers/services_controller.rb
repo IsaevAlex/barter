@@ -38,6 +38,8 @@ class ServicesController < ApplicationController
 		respond_to do |format|
       		format.js {}
     	end
+    	@service.read = true
+    	@service.save
 	end
 
 	def favorite
@@ -56,9 +58,7 @@ class ServicesController < ApplicationController
 	    end
     end
 
-	
-	
-	def edit
+    def edit
 		respond_to do |format|
       		format.js {}
     	end
@@ -69,7 +69,7 @@ class ServicesController < ApplicationController
 			flash[:success] = "Услуга успешно обновлена"
 			redirect_to current_user
 		else
-			render '_edit_form'
+			render '_form'
 		end
     end
 

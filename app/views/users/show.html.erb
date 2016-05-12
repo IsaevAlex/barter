@@ -2,31 +2,110 @@
   	<div class="col-md-4 col-md-offset-1">
       		<h4><%= image_tag @user.image.url(:medium) %></h4>
       		<h1><%= @user.company_name %></h1>
-      		<p>Зарегистрирован <%= @user.confirmed_at %></p>
-      		<p>Номер телефона <%= @user.phone_number %></p>
-      		<p> Местоположение <%= link_to "Добавить", new_location_path, class:"btn btn-default" %></p>
+      		<p><b>Зарегистрирован:</b> <%= @user.confirmed_at %></p>
+      		<p><b>Телефон:</b> <%= @user.phone_number %></p>
+      		<p>
+              <b>Адреса:</b>
+              <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Открыть</a>
+              <% if can? :create, @user %> 
+                  <%= link_to "Добавить", new_location_path %>
+              <% end %>
+          </p>
+          <div class="collapse" id="collapseExample">
+              <div class="well">
+                  <% if @locations.empty? %>
+                      <p>Нет добавленных адресов</p>
+                  <% else %>
+                      <% @locations.each do | location |  %>
+                          <p><%= location.address %></p> 
+                      <% end %>
+                  <% end %> 
+              </div>
+          </div>
+          <p><b>О компании</b> <%=  @user.description %></p>
           <p>
       			<div class="followers_followable_count">
-      				<a href="<%= follow_user_path  %>">Подписки <span class="badge"><%= @user.follow_count %></span></a> 	
-      			    <a href="<%= followers_user_path %>">Подписчики <span class="badge"><%= @user.followers_count %></span></a>	
+      				<a href="<%= follow_user_path  %>"><b>Подписки</b> <span class="badge"><%= @user.follow_count %></span></a> 	
+      			  <a href="<%= followers_user_path %>"><b>Подписчики</b> <span class="badge"><%= @user.followers_count %></span></a>	
       			</div>
       		</p>
           <% if user_signed_in? %>
                 <div id="follow_user">
                     <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
+                </div><br>
+                <% if can? :create, @user %> 
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Непрочитанные сообщения <span class="badge">+<%= @recipient_count %></span>
+                                  </a>
+                            </h4>
+                         </div>
+                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="panel-body">
+                                  <%= render 'orders/recipient_orders_off' %> 
+                              </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Непросмотренные предложения подписчиков <span class="badge">+<%= unread_services_count %></span>
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <%= render 'services/content_off' %> 
+                                </div>
+                          </div>
+                    </div>
                 </div>
-          <% end %><br>
-          <%= render 'orders/recipient_orders_off' %> 
+                <% end %>
+                
+                
+          <% end %>
 
      </div>
 	   <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-10">
+                      <%= form_tag services_path, :method => 'get' do %>
+                          <%= text_field_tag :query, params[:query], class:"form-control", placeholder: 'Найти предложение', id:"search" %>
+                </div>
+                <div class="col-md-2">
+                          <%= submit_tag "Найти", class: "search-button" %>
+                     <% end %>
+                </div>
+            </div>
+           
+          <br>
+            
+            
+          
+        
+            
+        
+        
+          
 	       <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#panel1">Услуги</a></li>
-                    <li><a data-toggle="tab" href="#panel2">Новости</a></li>
-                    <li><a data-toggle="tab" href="#panel3">Избранные</a></li>
-                    <li><a data-toggle="tab" href="#panel4">Мои запросы</a></li>
-                   <% if can? :create, @user %>
-					                <li> <%= link_to "Добавить предложение", new_service_path, remote: true, class: "order-button ", data: { toggle: "modal", target: "#newModal" } %></li>
+                    <li class="active"><a data-toggle="tab" href="#panel1">Предложения <span class="badge"><%= user_services_count %></span></a></rli>
+                    <li><a data-toggle="tab" href="#panel2">Новости <span class="badge"><%= all_following_services_count %></span></a></li>
+                    <% if can? :create, @user %>
+                          <li><a data-toggle="tab" href="#panel3">Избранные <span class="badge"><%= favorite_services_count %></span></a></li>
+                          <li><a data-toggle="tab" href="#panel4">Мои запросы <span class="badge"><%= order_count %></span></a></li>
+                          <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria     -haspopup="true" aria-expanded="false">
+                                     <span class="glyphicon glyphicon-list" aria-hidden="true"></span> 
+                                </button>
+                          
+                          <ul class="dropdown-menu">
+                              <li> <%= link_to "Доб.предложение", new_service_path, remote: true, data: { toggle: "modal", target: "#newModal" } %></li>
+                          </ul>
+                          </div>
 					          <% end %>
          </ul>
          <div class="tab-content">
@@ -41,8 +120,8 @@
               </div>
               <div  id="panel4" class="tab-pane fade">
                    <ul class="nav nav-tabs">
-                   		<li><a data-toggle="tab" href="#panel5">Входящие запросы</a></li>
-                   		<li><a data-toggle="tab" href="#panel6">Исходящие запросы</a></li><br>
+                   		<li><a data-toggle="tab" href="#panel5">Входящие запросы <span class="badge"><%= recipient_usered_orders %></span></a></li>
+                   		<li><a data-toggle="tab" href="#panel6">Исходящие запросы <span class="badge"><%= sender_usered_orders %></span></a></li><br>
                    </ul>  
 						       <div class="tab-content">
   							       <div id="panel5" class="tab-pane fade">
@@ -84,6 +163,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
