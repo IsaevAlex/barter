@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 		@locations = @user.locations
 	end
 
+	def share
+	end
+
 	def index
 		if params[:category].blank?
 			@users = User.all.order("created_at DESC ")

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://vk.com/js/api/share.js?90" charset="windows-1251"></script>
+
 <div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
                     <div class="pull-left image">
@@ -17,6 +17,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                      <li><%= link_to "В избранное", favorite_service_path(@service, type: "favorite"), method: :put %></li> 
+                                      <li><%= link_to "Поделиться в VK", share_path %></li> 
                                      <% unless @service.user == current_user %>
                                           <li><%= link_to "Отправить запрос", new_user_order_path(@service, @order) %></li>
                                      <% end %>
@@ -37,15 +38,7 @@
                 <% end %>
                 
                 <!-- Put this script tag to the place, where the Share button will be -->
-                <script type="text/javascript">
-                document.write(VK.Share.button({
-                  url: 'http://barterco.herokuapp.com',
-                  title: 'Хороший сайт',
-                  description: 'Это мой собственный сайт, я его очень долго делал',
-                  image: 'http://mysite.com/mypic.jpg',
-                  noparse: true
-                }));
-                </script>
+               
          
            
        
