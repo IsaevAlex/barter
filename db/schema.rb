@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510223558) do
+ActiveRecord::Schema.define(version: 20160513182712) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160510223558) do
     t.datetime "image_updated_at"
     t.integer  "category_id"
     t.string   "phone_number"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

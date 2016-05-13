@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
   has_many :comments
   
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :name, :last_name, :email, :company_name, :description,   presence: true
-  validates :name, length: { maximum: 20 }
- 
-  validates :last_name, :middle_name, :company_name,  length: { maximum: 40 }
+  validates :email, :company_name, :description,   presence: true
+  validates :company_name,  length: { maximum: 40 }
 end

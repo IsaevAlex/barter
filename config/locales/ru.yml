@@ -1,6 +1,21 @@
 ---
 ru:
   activerecord:
+    models:
+      user: "Пользователь"
+      service: "Предложение"
+      order: "Заказ"
+    attributes:
+      user:
+        company_name: "Название компании"
+        phone: "Телефон"
+        email: "Электронный адрес" 
+        password: "Пароль"
+        description: "Описание" 
+      order:
+        description: "Запрос"
+      service:
+        content: "Предложение"
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
@@ -261,3 +276,5 @@ ru:
   will_paginate:
     previous_label: <span class="glyph glyph-prev">Предыдущая</span>
     next_label: <span class="glyph glyph-next">Следующая</span>
+  columns:
+    company_name: "Название компании"  

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
          resources :images
          resources :comments   
          put :favorite, on: :member
-         put :share, on: :member 
+         
    end
    
 end

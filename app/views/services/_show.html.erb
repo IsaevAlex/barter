@@ -1,5 +1,4 @@
 
-
 <div class="panel panel-white post panel-shadow">
   			   <div class="post-heading">
                     <div class="pull-left image">
@@ -37,22 +36,9 @@
                 <% @service.images.each do | service_image | %>
                     <p><%= image_tag service_image.avatar.url(:medium) %></p>
                 <% end %>
-                <div class="socials">
-                    <div class="socials-share-buttons-container">
-                      <div class="item">
-                        <a class="vk js-vk">Нравится
-                          <i></i></a>
-                        <span>0</span>
-                      </div>
-                    </div>
-                </div>
-     
-
-           
-       
             </div>
-            
-          
+           
+
 
             <div class="service-form">
                  <% if user_signed_in?  %>
