@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/Go-Promo/social-share-buttons.git
+  revision: 2338b5db4f9ad620575e3f4ed0ee64e7afdac794
+  specs:
+    social_share_buttons (2.1.0)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -254,6 +261,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   searchkick
+  social_share_buttons!
   spring
   sqlite3
   turbolinks
@@ -262,4 +270,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.11.2
+   1.12.3

@@ -29,7 +29,8 @@
       			  <a href="<%= followers_user_path %>"><b>Подписчики</b> <span class="badge"><%= @user.followers_count %></span></a>	
       			</div>
       		</p>
-           
+            
+
           <% if user_signed_in? %>
                 <div id="follow_user">
                     <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>

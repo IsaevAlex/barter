@@ -11,7 +11,9 @@ gem 'geocoder'
 gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
+gem 'social_share_buttons', github: 'Go-Promo/social-share-buttons'
 
+                            
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0'

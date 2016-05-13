@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.socialShareButtons
 //= require data-confirm-modal
 //= require_tree .
 
@@ -42,21 +43,7 @@ $(document).ready(function() {
     })
 });
 
-Share = {
-	vkontakte: function(purl, ptitle, pimg, text) {
-		url  = 'http://vkontakte.ru/share.php?';
-		url += 'url='          + encodeURIComponent(purl);
-		url += '&title='       + encodeURIComponent(ptitle);
-		url += '&description=' + encodeURIComponent(text);
-		url += '&image='       + encodeURIComponent(pimg);
-		url += '&noparse=true';
-		Share.popup(url);
-	},
-
-	popup: function(url) {
-		window.open(url,'','toolbar=0,status=0,width=626,height=436');
-	}
-};
+$('.socials').socialShareButtons()
 
 
 
