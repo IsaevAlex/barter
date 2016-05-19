@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :sender_usered_orders, foreign_key: 'sender_user_id', class_name: 'Order'
   has_many :recipient_usered_orders, foreign_key: 'recipient_user_id', class_name: 'Order'
   
+  has_many :conversations, :foreign_key => :sender_id
+
   has_many :favorite_services
   has_many :favorites, through: :favorite_services, source: :service
   

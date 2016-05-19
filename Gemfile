@@ -12,6 +12,8 @@ gem "paperclip"
 gem 'cancan'
 gem "acts_as_follower"
 gem 'figaro'
+gem 'private_pub'
+gem 'thin'
 
 group :development, :test do
     gem 'rspec-rails', '~> 3.0.0'
