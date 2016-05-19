@@ -1,7 +1,5 @@
-
-	<%= form_for([@service, @service.comments.build]) do |f| %>
-	<%= render 'layouts/error_messages', object: f.object %>
-	
+<%= form_for([@service, @service.comments.build]) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
 	<div class="form-group">
 		<%= f.text_area :comment, autofocus: true, cols: "40", rows: "5", class:"form-control" %>
 	</div>

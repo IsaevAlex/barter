@@ -17,6 +17,11 @@ RSpec.describe UsersController, :type => :controller do
   		end
  	end
 
+ 	describe "GET #show" do
+	    it "assigns the requested user to @user"
+	    it "renders the :show template"
+  	end
+
  	
  end
  

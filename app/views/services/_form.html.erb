@@ -1,8 +1,6 @@
 <div class="service-form">
 	<h3>Добавить предложение</h3>
 	<%= nested_form_for [@service], :html=>{ :multipart => true } do |f| %>
-		<%= render 'layouts/error_messages', object: f.object %>
-		
 		<div class="form-group" >
 			<%= f.text_area :content, autofocus: true, class:"form-control", cols: "30", rows: "10" %>
 		</div>

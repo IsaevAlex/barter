@@ -2,7 +2,18 @@
     
     <div class="col-md-10 col-md-offset-1 content">
     	<%= form_for [current_user, current_user.sender_usered_orders.build], :html=>{ :multipart => true } do |f| %>
-			<%= render 'layouts/error_messages', object: f.object %>
+			<% if @order.errors.any? %>
+			    <div id="error_explanation">
+			      	 <ul>
+				         <% @order.errors.full_messages.each do |msg| %>
+				        	 <li>
+					           	<%= msg %>
+					         </li>
+				         <% end %>
+			         </ul>
+			    </div>
+ 			 <% end %>
+
 			<%= f.text_area :description, autofocus: true,  cols: "30", rows: "10", class:"form-control" %>
 			 
 			 <div class="row">

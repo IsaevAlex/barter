@@ -27,7 +27,9 @@
        font-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-.row { margin: 0; padding: 0; }
+.row{ 
+  margin: 0; padding: 0;
+}
 
 .service-form{
     margin: 20px;
@@ -182,7 +184,9 @@ h3{
 
 /* Slider sltyles */
 
-body{padding-top:20px;}
+body{
+  padding-top:20px;
+}
 .carousel {
     margin-bottom: 0;
     padding: 0 40px 30px 40px;
@@ -394,4 +398,9 @@ background: #428bca;
    float: right;
    margin: 10px;
 }
+
+/* footer */
+
+
+
 

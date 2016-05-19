@@ -1,8 +1,25 @@
 <div class="home">
-	<%= render 'layouts/greeting' %>
-	<div class="col-md-2 col-md-offset-5">
-		<button class="home-button" data-toggle="modal" data-target=".bs-example-modal-lg">Узнать подробнее</button>
-	</div>
+	<%= render 'layouts/greeting' %><br>
+  
+	       <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                      <%= form_tag services_path, :method => 'get' do %>
+                          <%= text_field_tag :query, params[:query], class:"form-control", placeholder: "Введите предложение", id:"search" %>
+                </div>
+        </div><br>
+        <div class="row">
+              <div class="col-md-2 col-md-offset-5">
+                          <%= submit_tag "Найти предложение", class: "btn btn-default btn-lg" %>
+                     <% end %>
+              </div>
+        </div>  <br><br>
+  <div class="row">
+      <%= render 'layouts/search_by_category' %>
+  </div>
+  
+ 
+  
+	
 
 
 

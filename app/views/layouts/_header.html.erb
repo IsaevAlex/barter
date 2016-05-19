@@ -26,19 +26,20 @@
                                         <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
 
                                     </ul>
-                            </li>   
-                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Поиск<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><%= link_to 'Поиск по категориям ', users_path %></li>
-                                        <li><%= link_to "Поиск по предложениям", services_path %></li>
-                                    </ul>
-                            </li>  
+                            </li>
+                            
                     <% else %>
                             <li><%= link_to 'Войти', new_user_session_path %></li>
                             <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
                     <% end %>
-               
-                 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if user_signed_in? %>
+                        <li>  <a role="button" data-toggle="collapse" href="#collapseSearch" aria-expanded="false" aria-controls="collapseExample">Поиск по сервисам</a></li>
+                        <li>  <a role="button" data-toggle="collapse" href="#collapseSearchCategory" aria-expanded="false" aria-controls="collapseExample">Поиск по категориям</a></li>
+                    
+                        
+                    <% end %>
                 </ul>
             </div>
        

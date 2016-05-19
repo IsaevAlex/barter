@@ -17,6 +17,27 @@ RSpec.describe ServicesController, :type => :controller do
   		end
  	end
 
+ 	describe "GET #show" do
+	    it "assigns the requested service to @service"
+	    it "renders the :show template"
+
+	    it "assigns the requested contact to @service" do
+    		service = Factory(:service)
+		    get :show, id: service
+		    assigns(:service).should eq(service)
+  		end
+
+  		it "renders the #show view" do
+    		get :show, id: Factory(:service)
+    		response.should render_template :show
+  		end
+  	end
+
+ 	describe "GET #new" do
+    	it "assigns a new  to @order"
+    	it "renders the :new template"
+  	end
+
  	describe "POST #create" do
 	    context "with valid attributes" do
 	      it "saves the new service in the database"

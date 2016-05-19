@@ -12,30 +12,15 @@
 			<h3 class="search_results_title">Результаты поиска</h3>
 		</div>				
 	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-1">			
-		<% @users.each do |user| %>
-			<div class="panel panel-white post panel-shadow">
-				<div class="post-heading">
-					<div class="pull-left image">
-						<%= image_tag user.image.url,  height: '70', width: '70' %>	
-					</div>
-					<div class="pull-left meta">						
-						<h3><%= link_to user.company_name, user , style:"color:#3c3e50;"%></h3>	
-						<p><%= user.category.name %></p>
-					</div>
-
-				</div>
-				<div class="post-description">
-						
-				</div>
-
-			</div>	
-			
-		<% end %>
-		</div>
-	</div>
-	
+	<% if @users.any? %>
+		<%= render 'layouts/users_search' %>
+	<% else %>
+		 <div class="row">
+		 	<div class="col-md-8 col-md-offset-1">
+		 		<h4>Организаций по этой категорий не найдено</h4>
+		 	</div>
+		 </div>
+	<% end %>	
 
 
 

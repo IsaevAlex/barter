@@ -6,9 +6,7 @@ class ServicesController < ApplicationController
     	render json: Service.search(params[:query], autocomplete: true, limit: 10).map(&:content)
     end	
 
-     
-
- 	def index
+    def index
         if params[:query].present?
   			@services = Service.search(params[:query], page: params[:page], per_page: 5)
     	else
@@ -31,7 +29,8 @@ class ServicesController < ApplicationController
 			flash[:success] = "Услуга успешно создана"
 			redirect_to current_user
 		else
-			flash[:notice] = "Ошшибка :("
+			flash[:error] = "Ошибка при добавлении предложения. Попробуйте снова.\n Предложение не может быть пустым и должно иметь длину от 10 до 1000 символов"
+
       		redirect_to :back
   		end
 	end

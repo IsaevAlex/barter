@@ -33,8 +33,8 @@
                  <%= @service.content %>
             </div>
             <div class="post-description">
-                <% @service.images.each do | service_image | %>
-                    <p><%= image_tag service_image.avatar.url(:medium) %></p>
+                <% if @service.images.any? %>
+                    <%= render 'layouts/service_images' %>
                 <% end %>
             </div>
            

@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
 		    flash[:success] = "Письмо успешно отправлено"
 			redirect_to :back
 		else
+			
 			render 'new'
 		end
 	end

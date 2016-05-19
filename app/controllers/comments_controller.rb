@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
 			flash[:success] = "Отзыв успешно добавлен"
 			redirect_to :back
 		else
-			redirect_to @service
+			flash[:error] = "Текстовое поле для отзыва не может быть пустым."
+      		redirect_to :back
 		end
 	end
 

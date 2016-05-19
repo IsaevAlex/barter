@@ -1,0 +1,33 @@
+<div class="bs-example">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 550px; margin: 0 auto">
+         <ol class="carousel-indicators">
+             <% @service.images.each_with_index do |service_image, index| %>
+                    <% if index == 0 %>
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <% else %>
+                          <li data-target="#myCarousel" data-slide-to="<%= index %>"></li>
+                    <% end %>
+            <% end %>
+        </ol> 
+         <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <%= image_tag @service.images.first.avatar.url, :size => "600x600" %>
+            </div>
+            <% @service.images.each do | service_image | %>
+                <% if service_image != @service.images.first %>
+                    <div class="item">
+                        <%= image_tag service_image.avatar.url, :size => "600x600" %>   
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+            
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+            
+        </a>
+    </div>
+</div>
