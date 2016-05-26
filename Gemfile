@@ -31,9 +31,12 @@ group :production  do
     gem 'rails_12factor'
 end
 
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
+group :assets do
+  gem 'sass-rails'
+  gem 'uglifier'
+  gem 'coffee-rails'  
+end
+
 
 
 
