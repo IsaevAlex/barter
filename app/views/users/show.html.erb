@@ -50,12 +50,12 @@
 
          <% if user_signed_in? %>
                <div class="row">
-                 <div class="col-md-4" style="margin-right: 25px;">
+                 <div  style="margin-right: 5px; margin-left: 0px; float: left;">
                      <div id="follow_user">
                           <%= render :partial => "/shared/follow_user", :locals => {:user => @user} %>
                       </div>
                  </div>
-                 <div class="col-md-4" style="margin-top:35px;">
+                 <div  style="margin-top:35px;">
                       <% unless current_user.id == @user.id %>
                               <%= link_to "Начать диалог", "#", class: "button start-conversation",
                           "data-sid" => current_user.id, "data-rip" => @user.id

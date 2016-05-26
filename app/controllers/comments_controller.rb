@@ -6,14 +6,10 @@ class CommentsController < ApplicationController
 		@service = Service.find(params[:service_id])
 		@comment = @service.comments.create(params[:comment].permit(:comment))
 		@comment.user_id = current_user.id if current_user
-		@comment.save
-
 		if @comment.save
-			flash[:success] = "Отзыв успешно добавлен"
-			redirect_to :back
-		else
-			flash[:error] = "Текстовое поле для отзыва не может быть пустым."
-      		redirect_to :back
+			respond_to do |format|
+		        format.js { flash.now[:success] = "Вы оставили отзыв" }
+		    end
 		end
 	end
 
@@ -21,7 +17,9 @@ class CommentsController < ApplicationController
 		@service = Service.find(params[:service_id])
 		@comment = @service.comments.find(params[:id])
 		@comment.destroy
-		redirect_to :back
+		respond_to do |format|
+      		  format.js { flash.now[:success] = "Вы удалили отзыв" }
+    	end
 	end
 
 end

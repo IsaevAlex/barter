@@ -44,24 +44,18 @@
             <div class="service-form">
                  <% if user_signed_in?  %>
                     <h2>Добавить отзыв</h2>
-                    <%= render 'comments/form' %> <br>
+                    <div id="comment">
+                        <%= render :partial => 'comments/form', :locals => {:comment => @comment} %>
+                    </div> <br>
                 <% else %>
                     <p>Чтобы добавить отзыв,вы должны зарегистрироваться</p>    
                 <% end %><br>
                 <p><h4>Отзывы: <%= @service.comments.count %></h4></p>
-    
-            <% @service.comments.each do |comment| %>
-                <div class="well">
-                    <h4><%= comment.comment %></h4>
-                    <% if comment.user %>
-                        <p> Добавила  <%= comment.user.company_name %> </p>
-                        <% if can? :destroy, comment %>
-                            <%= link_to "Удалить", [comment.service, comment], method: :delete, data: { confirm: "Вы уверены?" } %>
-                        <% end %>
-                    <% end %>
-                </div>  
-            <% end %>
-
+                <%= render 'layouts/messages' %>
+                <div id="com">
+                    <%= render @service.comments.order("created_at DESC") %>
+                </div>
+                 
             </div>
            
             

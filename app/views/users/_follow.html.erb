@@ -4,21 +4,27 @@
 		</div>				
 	</div>
 	<div class="row">
-		<% @user.all_following.each do |user| %>
-			<div class="col-md-7 col-md-offset-1">
-				<div class="panel panel-white post panel-shadow">
-	  			     <div class="post-heading">
-	                    <div class="pull-left image"  >
-	                         <%= image_tag user.image.url, width:"70", height:"60" %>
-						</div>
-	                    <div class="pull-left meta">
-	                         <a href="#"><b><%= link_to user.company_name, user %></b></a>
-	                         <h6 class="text-muted time">Была зарегистрирована <%= user.confirmed_at %></h6>
-					    </div>
+		<% if @user.all_following.any? %>
+			<% @user.all_following.each do |user| %>
+				<div class="col-md-7 col-md-offset-1">
+					<div class="panel panel-white post panel-shadow">
+		  			     <div class="post-heading">
+		                    <div class="pull-left image"  >
+		                         <%= image_tag user.image.url, width:"70", height:"60" %>
+							</div>
+		                    <div class="pull-left meta">
+		                         <a href="#"><b><%= link_to user.company_name, user %></b></a>
+		                         <h6 class="text-muted time">Была зарегистрирована <%= user.confirmed_at %></h6>
+						    </div>
 
-					  </div> 
-               	</div>	
-			</div>	
+						  </div> 
+	               	</div>	
+				</div>	
+			<% end %>
+		<% else %>
+			<div class="col-md-7 col-md-offset-1">
+				<h4>У пользователя пока нет подписок</h4>
+			</div>
 		<% end %>
 	</div>
 	

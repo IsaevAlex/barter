@@ -7,7 +7,7 @@
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <title>Barter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :cache => true  %>
   <%= javascript_include_tag :defaults, "nested_form" %>
   <%= csrf_meta_tags %>
 </head>
