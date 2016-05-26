@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
     	else
       		@services = Service.paginate(:page => params[:page], :per_page => 5)
     	end
-	end
+    end
 
 	def new
 		@service = Service.new

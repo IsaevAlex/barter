@@ -14,6 +14,5 @@ class FollowsController < ApplicationController
       		  format.js { flash.now[:success] = "Вы отписались от #{@user.company_name}" }
     	   end
   	end
-
-  	
 end
+

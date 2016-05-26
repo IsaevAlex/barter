@@ -22,9 +22,10 @@
                                           <li><%= link_to "Отправить запрос", new_user_order_path(@service, @order) %></li>
                                      <% end %>
                                      <% unless @service.favorited_by.empty? %>
-                                          <li><%= link_to "Удалить из избранных", favorite_service_path(@service, type: "  unfavorite"), method: :put %></li> 
+                                        <li><%= link_to "Удалить из избранных", favorite_service_path(@service, type: "unfavorite"), method: :put %></li>
+                                          
                                      <% end %>
-                                     <li><%= link_to "Выйти", :back %></li>
+                                     <li><%= link_to "Закрыть", :back %></li>
                                 </ul>
                          </div>
                     <% end %>

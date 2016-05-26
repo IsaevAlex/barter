@@ -9,21 +9,17 @@ class UsersController < ApplicationController
 		@services = @user.services.paginate(:page => params[:page], :per_page => 5)
 		@favorites = @user.favorites.paginate(:page => params[:page], :per_page => 5)
 		@locations = @user.locations
+		@conversations = Conversation.involving(current_user).order("created_at DESC")
 	end
-
-
 
 	def index
-		if params[:category].blank?
-			@users = User.all.order("created_at DESC ")
-		else
-			@category_id = Category.find_by(name: params[:category]).id
-			@users = User.where(category_id: @category_id).order("created_at DESC")
-		end
-		
+       if params[:category].blank?
+		  @users = User.all.order("created_at DESC ")
+	   else
+		  @category_id = Category.find_by(name: params[:category]).id
+		  @users = User.where(category_id: @category_id).order("created_at DESC")
+	   end
 	end
-
-	
 
 	def follow
 	end

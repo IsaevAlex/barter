@@ -11,17 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require chat
-
-//= require bootstrap-sprockets
-
 //= require private_pub
-//= require jquery.socialShareButtons
-//= require data-confirm-modal
+//= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
-
 
 
 // sliders for search category
@@ -46,6 +41,9 @@ $(document).ready(function() {
         interval: false
     })
 });
+
+
+
 
 
 

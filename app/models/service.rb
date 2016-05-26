@@ -7,7 +7,7 @@ class Service < ActiveRecord::Base
 	validates(:content, presence: true)
 
     has_many :favorite_services  
-    has_many :favorited_by, through: :favorite_services, source: :service
+    has_many :favorited_by, through: :favorite_services, source: :user
     has_many :images, dependent: :destroy
     has_many :comments, dependent: :destroy
     accepts_nested_attributes_for :images

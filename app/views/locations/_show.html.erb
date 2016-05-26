@@ -1,0 +1,17 @@
+<div class="service-form">
+	<h2>Адрес</h2>
+<%= @location.address %>
+<%= @location.user.company_name %>
+
+<p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %></p> 
+
+<h4>Ближайшие компании</h4>
+<ul>
+	<% @location.nearbys.each do | location | %>
+		<li><%= link_to location.address, location.user %> (<%= location.distance.round(2) %> км) </li>
+	<% end %>
+</ul>
+	
+</div>
+
+

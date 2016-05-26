@@ -1,0 +1,19 @@
+ <div style="height: 400px; overflow-y: auto;">
+      <% if @conversations.any? %>
+          <ul class="media-list">
+            <% @conversations.each do |conversation| %>
+                <li class="media">
+                  <div class="media-body">
+                    
+                    <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                    <h4 class="media-heading"><%= conversation.recipient.company_name %></h4>
+                    <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
+                  </div>
+                </li>
+
+            <% end %>
+          </ul>
+      <% else %>
+          <p>You have no conversations. Click send message with any user to create one.</p>
+      <% end %>
+    </div>

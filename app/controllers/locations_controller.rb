@@ -2,17 +2,23 @@ class LocationsController < ApplicationController
 	before_action :find_location, only: [:show, :edit, :destroy]
 
 	def show
+		respond_to do |format|
+      		format.js {}
+    	end
 	end
 
 	def new
-		@location = current_user.locations.build
+		@location = Location.new
+		respond_to do |format|
+      		format.js {}
+    	end
 	end
 
 	def create
 		@location = current_user.locations.build(location_params)
 		if  @location.save
 			flash[:success] = "Адрес успешно создан"
-			redirect_to @location
+			redirect_to current_user
 		else
 			flash[:notice] = "Ошшибка :("
       		redirect_to :back
@@ -22,6 +28,12 @@ class LocationsController < ApplicationController
 	def index
 		@locations = Location.all
 	end
+
+	def destroy
+		@location.destroy
+		redirect_to current_user
+	end
+
 	
 
 

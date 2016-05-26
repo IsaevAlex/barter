@@ -1,15 +1,12 @@
-<div class="row">
-	 <h3>Добавление адреса</h3>
-	 <div class="col-md-10 col-md-offset-1 content">
-	 	<%= form_for [@location], :html=>{ :multipart => true } do |f| %>
-			<%= render 'layouts/error_messages', object: f.object %>
+<div class="service-form">
+	<h3>Добавить адрес</h3>
+	<%= form_for [@location], :html=>{ :multipart => true } do |f| %>
 			<div class="form-group">
-				<p>Адрес</p>
-				<%= f.text_field :address %>
+				<%= f.text_field :address, class:"form-control" %>
 			</div>
-			<%= f.submit %>
+			<%= f.submit "Добавить", class: "button service-button" %>
+		    <%= link_to "Отмена", :back , class: "button service-button-close" %>
 
 		<% end %>
-	 </div>
 </div>
 
