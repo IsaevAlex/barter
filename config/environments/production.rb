@@ -76,8 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.assets.css_compressor = :sass
-  config.assets.compress = true
+  config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'barterco.herokuapp.com' }  
   config.action_mailer.delivery_method = :smtp  
