@@ -23,6 +23,9 @@ module Barter
      config.assets.precompile = config.assets.precompile + %w(*.png *.jpg *.jpeg *.gif *.woff *.ttf *.svg *.eot)
      
      config.assets.paths << Rails.root.join("vendor","assets", "fonts")
+
+     config.assets.compile = true
+     config.assets.initialize_on_precompile = false
     
     # Do not swallow errors in after_commit/after_rollback callbacks.
      # Do not swallow errors in after_commit/after_rollback callbacks.
