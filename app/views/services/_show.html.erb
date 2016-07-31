@@ -25,6 +25,8 @@
                                         <li><%= link_to "Удалить из избранных", favorite_service_path(@service, type: "unfavorite"), method: :put %></li>
                                           
                                      <% end %>
+                                     <li><%= link_to "Начать диалог", "#", "data-sid" => current_user.id, "data-rip" => @service.user.id
+                          %></li> 
                                      <li><%= link_to "Закрыть", :back %></li>
                                 </ul>
                          </div>
